@@ -16,6 +16,7 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
   const mapInitializedRef = useRef<boolean>(false)
   const iconsRef = useRef<Record<string, any>>({})
   const userLocationMarkerRef = useRef<any>(null)
+  const [mapReady, setMapReady] = useState(false)
 
   const { location, loading: locationLoading, error: locationError, permissionDenied } = useGeolocation()
   const { events, loadEventsFromFirebase } = useEvents()
@@ -127,10 +128,18 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
 
     userLocationMarkerRef.current = L.marker([location.lat, location.lng], {
       icon: userLocationIcon,
+      zIndexOffset: 1000, // Ensure user marker is always on top
     }).addTo(map)
 
-    // Center map on user location
-    map.setView([location.lat, location.lng], defaultZoom)
+    // Bind popup to user location marker
+    userLocationMarkerRef.current.bindPopup("Sua localização atual")
+    
+    // Center map on user location (only if this is the first time)
+    if (!userLocationMarkerRef.current._alreadyCentered) {
+      map.setView([location.lat, location.lng], defaultZoom)
+      userLocationMarkerRef.current._alreadyCentered = true
+    }
+    
     console.log("SimpleEventsMap: Marcador de localização criado e mapa centralizado")
   }
 
@@ -169,12 +178,15 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
         mapInstanceRef.current = map
         mapInitializedRef.current = true
 
-        // Add user location marker when location is available
-        if (location) {
-          addUserLocationMarker(L, map)
-        }
-
         console.log("Mapa inicializado com sucesso")
+
+        // Wait a bit for everything to be ready, then add markers
+        setTimeout(() => {
+          setMapReady(true)
+          if (location && iconsRef.current.userLocation) {
+            addUserLocationMarker(L, map)
+          }
+        }, 100)
       } catch (error) {
         console.error("Erro ao inicializar mapa:", error)
       }
@@ -183,26 +195,24 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
     initializeMap()
   }, [])
 
-  // Update user location marker when location changes
+  // Add markers when events are loaded and user location is available
   useEffect(() => {
-    if (mapInstanceRef.current && leafletRef.current && location) {
-      addUserLocationMarker(leafletRef.current, mapInstanceRef.current)
-    }
-  }, [location])
-
-  // Add markers when events are loaded
-  useEffect(() => {
-    if (!mapInstanceRef.current || !leafletRef.current) return
+    if (!mapReady || !mapInstanceRef.current || !leafletRef.current || !iconsRef.current.userLocation) return
 
     const L = leafletRef.current
     const map = mapInstanceRef.current
 
-    // Clear existing markers
+    // Clear existing markers (except user location)
     map.eachLayer((layer: any) => {
-      if (layer instanceof L.Marker) {
+      if (layer instanceof L.Marker && layer !== userLocationMarkerRef.current) {
         map.removeLayer(layer)
       }
     })
+
+    // Add user location marker first (if location is available)
+    if (location && !userLocationMarkerRef.current) {
+      addUserLocationMarker(L, map)
+    }
 
     // Add event markers
     if (events.length > 0) {
@@ -236,7 +246,32 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
     } else {
       console.log("Nenhum evento encontrado para exibir no mapa")
     }
-  }, [events])
+  }, [events, location, mapReady])
+
+  // Update user location marker when location changes (separate effect)
+  useEffect(() => {
+    if (!mapReady || !mapInstanceRef.current || !leafletRef.current || !location || !iconsRef.current.userLocation) return
+    
+    // Only update if we don't already have a marker or if location changed significantly
+    if (!userLocationMarkerRef.current) {
+      addUserLocationMarker(leafletRef.current, mapInstanceRef.current)
+    } else {
+      // Update existing marker position
+      const currentPos = userLocationMarkerRef.current.getLatLng()
+      const newPos = { lat: location.lat, lng: location.lng }
+      
+      // Only update if position changed significantly (more than 10 meters)
+      const distance = Math.sqrt(
+        Math.pow(currentPos.lat - newPos.lat, 2) + Math.pow(currentPos.lng - newPos.lng, 2)
+      ) * 111000 // rough conversion to meters
+      
+      if (distance > 10) {
+        userLocationMarkerRef.current.setLatLng(newPos)
+        mapInstanceRef.current.setView(newPos, mapInstanceRef.current.getZoom())
+        console.log("SimpleEventsMap: Posição do usuário atualizada")
+      }
+    }
+  }, [location, mapReady])
 
   return (
     <div className="h-full w-full">
