@@ -34,7 +34,7 @@ export function useGeolocation() {
         setLocation({ lat: latitude, lng: longitude })
         setLoading(false)
         setPermissionDenied(false)
-        console.log("Localização obtida com sucesso:", { lat: latitude, lng: longitude })
+        console.log("useGeolocation: Localização obtida com sucesso:", { lat: latitude, lng: longitude })
       },
       (error) => {
         console.error("Erro ao obter localização:", error.message)

@@ -15,8 +15,9 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
   const leafletRef = useRef<any>(null)
   const mapInitializedRef = useRef<boolean>(false)
   const iconsRef = useRef<Record<string, any>>({})
+  const userLocationMarkerRef = useRef<any>(null)
 
-  const { location, loading: locationLoading } = useGeolocation()
+  const { location, loading: locationLoading, error: locationError, permissionDenied } = useGeolocation()
   const { events, loadEventsFromFirebase } = useEvents()
 
   const defaultZoom = 16
@@ -47,8 +48,44 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
       fashion: "padrao",        // Ícone padrão para moda
     }
 
+    // User location icon
+    const userLocationSvg = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+        <!-- Círculo externo pulsante -->
+        <circle cx="12" cy="12" r="6" fill="#4285F4" opacity="0.8">
+          <animate 
+            attributeName="r" 
+            from="6" 
+            to="15" 
+            dur="1.5s" 
+            begin="0s" 
+            repeatCount="indefinite" 
+          />
+          <animate 
+            attributeName="opacity" 
+            from="0.8" 
+            to="0" 
+            dur="1.5s" 
+            begin="0s" 
+            repeatCount="indefinite" 
+          />
+        </circle>
+        
+        <!-- Círculo central fixo -->
+        <circle cx="12" cy="12" r="6" fill="#4285F4" stroke="white" stroke-width="1" />
+      </svg>
+    `
+
+    const userLocationIcon = new L.DivIcon({
+      html: userLocationSvg,
+      className: "user-location-icon",
+      iconSize: [24, 24],
+      iconAnchor: [12, 12]
+    })
+
     const icons: Record<string, any> = {
       default: new L.Icon(baseIconConfig),
+      userLocation: userLocationIcon,
     }
 
     // Criar ícones para cada categoria
@@ -68,6 +105,34 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
   useEffect(() => {
     loadEventsFromFirebase()
   }, [loadEventsFromFirebase])
+
+  // Add user location marker
+  const addUserLocationMarker = (L: any, map: any) => {
+    if (!location) {
+      console.log("SimpleEventsMap: Localização não disponível para criar marcador")
+      return
+    }
+    
+    console.log("SimpleEventsMap: Criando marcador de localização do usuário:", location)
+    
+    if (userLocationMarkerRef.current) {
+      map.removeLayer(userLocationMarkerRef.current)
+    }
+
+    const userLocationIcon = iconsRef.current.userLocation
+    if (!userLocationIcon) {
+      console.error("SimpleEventsMap: Ícone de localização do usuário não encontrado")
+      return
+    }
+
+    userLocationMarkerRef.current = L.marker([location.lat, location.lng], {
+      icon: userLocationIcon,
+    }).addTo(map)
+
+    // Center map on user location
+    map.setView([location.lat, location.lng], defaultZoom)
+    console.log("SimpleEventsMap: Marcador de localização criado e mapa centralizado")
+  }
 
   // Initialize map
   useEffect(() => {
@@ -104,6 +169,11 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
         mapInstanceRef.current = map
         mapInitializedRef.current = true
 
+        // Add user location marker when location is available
+        if (location) {
+          addUserLocationMarker(L, map)
+        }
+
         console.log("Mapa inicializado com sucesso")
       } catch (error) {
         console.error("Erro ao inicializar mapa:", error)
@@ -112,6 +182,13 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
 
     initializeMap()
   }, [])
+
+  // Update user location marker when location changes
+  useEffect(() => {
+    if (mapInstanceRef.current && leafletRef.current && location) {
+      addUserLocationMarker(leafletRef.current, mapInstanceRef.current)
+    }
+  }, [location])
 
   // Add markers when events are loaded
   useEffect(() => {
@@ -164,9 +241,28 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
   return (
     <div className="h-full w-full">
       <div ref={mapRef} className="h-full w-full" />
+      
+      {/* Location Status */}
       {locationLoading && (
-        <div className="absolute top-4 left-4 bg-white p-2 rounded shadow">
+        <div className="absolute top-4 left-4 bg-white p-2 rounded shadow z-[1000]">
           <p className="text-sm">Obtendo localização...</p>
+        </div>
+      )}
+      
+      {locationError && (
+        <div className="absolute top-4 left-4 bg-red-100 border border-red-300 p-2 rounded shadow z-[1000]">
+          <p className="text-sm text-red-700">
+            {permissionDenied 
+              ? "Permissão de localização negada. Permita o acesso para ver sua localização no mapa."
+              : "Erro ao obter localização. Usando localização padrão."
+            }
+          </p>
+        </div>
+      )}
+      
+      {location && (
+        <div className="absolute top-4 left-4 bg-green-100 border border-green-300 p-2 rounded shadow z-[1000]">
+          <p className="text-sm text-green-700">Localização obtida com sucesso!</p>
         </div>
       )}
     </div>

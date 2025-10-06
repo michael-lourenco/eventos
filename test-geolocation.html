@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Geolocalização</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .status { padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .loading { background-color: #e3f2fd; color: #1976d2; }
+        .success { background-color: #e8f5e8; color: #2e7d32; }
+        .error { background-color: #ffebee; color: #c62828; }
+    </style>
+</head>
+<body>
+    <h1>Teste de Geolocalização</h1>
+    <div id="status" class="status loading">Obtendo localização...</div>
+    <div id="location"></div>
+    <div id="error"></div>
+
+    <script>
+        const statusDiv = document.getElementById('status');
+        const locationDiv = document.getElementById('location');
+        const errorDiv = document.getElementById('error');
+
+        if (!navigator.geolocation) {
+            statusDiv.className = 'status error';
+            statusDiv.textContent = 'Geolocalização não suportada pelo navegador';
+        } else {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    statusDiv.className = 'status success';
+                    statusDiv.textContent = 'Localização obtida com sucesso!';
+                    
+                    locationDiv.innerHTML = `
+                        <h3>Coordenadas:</h3>
+                        <p><strong>Latitude:</strong> ${position.coords.latitude}</p>
+                        <p><strong>Longitude:</strong> ${position.coords.longitude}</p>
+                        <p><strong>Precisão:</strong> ${position.coords.accuracy} metros</p>
+                    `;
+                },
+                (error) => {
+                    statusDiv.className = 'status error';
+                    statusDiv.textContent = 'Erro ao obter localização';
+                    
+                    let errorMessage = '';
+                    switch(error.code) {
+                        case error.PERMISSION_DENIED:
+                            errorMessage = 'Permissão de localização negada pelo usuário';
+                            break;
+                        case error.POSITION_UNAVAILABLE:
+                            errorMessage = 'Localização indisponível';
+                            break;
+                        case error.TIMEOUT:
+                            errorMessage = 'Timeout ao obter localização';
+                            break;
+                        default:
+                            errorMessage = 'Erro desconhecido';
+                            break;
+                    }
+                    
+                    errorDiv.innerHTML = `<p><strong>Erro:</strong> ${errorMessage}</p>`;
+                },
+                {
+                    enableHighAccuracy: true,
+                    timeout: 15000,
+                    maximumAge: 0
+                }
+            );
+        }
+    </script>
+</body>
+</html>
