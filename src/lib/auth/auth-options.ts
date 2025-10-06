@@ -9,11 +9,11 @@ interface Token extends JWT {
 export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.NEXT_PUBLIC_GOOGLE_CREDENTIALS_OAUTH_CLIENT_ID || "68214776694-cbltoeiatotcviihntnbd2ieljj7cbck.apps.googleusercontent.com",
-      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CREDENTIALS_OAUTH_CLIENT_SECRET || "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",
+      clientId: process.env.NEXT_PUBLIC_GOOGLE_CREDENTIALS_OAUTH_CLIENT_ID!,
+      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CREDENTIALS_OAUTH_CLIENT_SECRET!,
     }),
   ],
-  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET || "5O19zREk1b+/ROWgT6GjummlsJkoebt9g/u2EDMf3Y8",
+  secret: process.env.NEXT_PUBLIC_NEXTAUTH_SECRET!,
   pages: {
     signIn: '/login',
     error: '/login',
