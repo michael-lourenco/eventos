@@ -19,7 +19,6 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
   const { location, loading: locationLoading } = useGeolocation()
   const { events, loadEventsFromFirebase } = useEvents()
 
-  const defaultLocation: [number, number] = [-23.5902, -48.0338]
   const defaultZoom = 16
 
   // Função para criar ícones personalizados
@@ -82,8 +81,10 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
         // Criar ícones personalizados
         iconsRef.current = createEventIcons(L)
 
+        const defaultLocation: [number, number] = [-23.5902, -48.0338]
+
         // Verificar se o container já foi inicializado
-        if (mapRef.current && mapRef.current._leaflet_id) {
+        if (mapRef.current && mapInitializedRef.current) {
           console.log("Mapa já inicializado, pulando...")
           return
         }

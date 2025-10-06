@@ -117,7 +117,7 @@ export function ProblemMap({ markers }: ProblemMapProps) {
       )
       map.fitBounds(bounds)
     }
-  }, [map, mapLoaded, markers, setLeafletMarkers])
+  }, [map, mapLoaded, markers, setLeafletMarkers, leafletMarkers])
 
   return (
     <div className="relative h-full w-full">

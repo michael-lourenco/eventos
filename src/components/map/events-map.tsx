@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { MapPin, Users, Heart, Calendar, DollarSign } from "lucide-react"
 import { format } from "date-fns"
-import type { Event } from "@/components/event/types/event"
+import type { Event, EventCategory } from "@/components/event/types/event"
 
 interface EventsMapProps {
   onNeedLogin: () => void
@@ -30,7 +30,6 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([])
   const [followMode, setFollowMode] = useState<boolean>(true)
 
-  const defaultLocation: [number, number] = [-23.5902, -48.0338]
   const defaultZoom = 16
 
   // Load events on component mount
@@ -46,6 +45,25 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
     return events.filter(event => selectedCategories.includes(event.category))
   }, [events, selectedCategories])
 
+  // Add user location marker
+  const addUserLocationMarker = useCallback((L: any, map: any) => {
+    if (!location) return
+    
+    if (userLocationMarkerRef.current) {
+      map.removeLayer(userLocationMarkerRef.current)
+    }
+
+    const userLocationIcon = iconsRef.current.userLocation
+    userLocationMarkerRef.current = L.marker([location.lat, location.lng], {
+      icon: userLocationIcon,
+    }).addTo(map)
+
+    if (!initialCenteringDoneRef.current) {
+      map.setView([location.lat, location.lng], defaultZoom)
+      initialCenteringDoneRef.current = true
+    }
+  }, [location])
+
   // Initialize map
   useEffect(() => {
     if (!mapRef.current || mapInitializedRef.current) return
@@ -57,6 +75,8 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
 
         // Create icons
         iconsRef.current = createEventIcons(L)
+
+        const defaultLocation: [number, number] = [-23.5902, -48.0338]
 
         // Initialize map
         const map = L.map(mapRef.current!, {
@@ -83,24 +103,7 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
     }
 
     initializeMap()
-  }, [])
-
-  // Add user location marker
-  const addUserLocationMarker = useCallback((L: any, map: any) => {
-    if (userLocationMarkerRef.current) {
-      map.removeLayer(userLocationMarkerRef.current)
-    }
-
-    const userLocationIcon = iconsRef.current.userLocation
-    userLocationMarkerRef.current = L.marker([location.lat, location.lng], {
-      icon: userLocationIcon,
-    }).addTo(map)
-
-    if (!initialCenteringDoneRef.current) {
-      map.setView([location.lat, location.lng], defaultZoom)
-      initialCenteringDoneRef.current = true
-    }
-  }, [location])
+  }, [addUserLocationMarker, location])
 
   // Update user location marker when location changes
   useEffect(() => {
@@ -135,8 +138,8 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
       const popupContent = document.createElement("div")
       popupContent.className = "event-popup"
       
-      const startDate = new Date(event.startDate)
-      const endDate = new Date(event.endDate)
+      const startDate = event.startDate instanceof Date ? event.startDate : event.startDate.toDate()
+      const endDate = event.endDate instanceof Date ? event.endDate : event.endDate.toDate()
       const isInterested = isUserInterested(event)
       const isAttending = isUserAttending(event)
 
@@ -274,7 +277,7 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
   const availableCategories = useMemo(() => {
     const categories = new Set<string>()
     events.forEach(event => categories.add(event.category))
-    return Array.from(categories)
+    return Array.from(categories) as EventCategory[]
   }, [events])
 
   return (

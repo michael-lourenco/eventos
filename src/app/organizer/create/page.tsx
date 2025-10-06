@@ -11,6 +11,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { ArrowLeft, MapPin, AlertCircle, Calendar, Clock, Users, DollarSign } from "lucide-react"
 import type { EventFormData } from "@/components/event/types/event"
+import { EventCategory } from "@/components/event/types/event"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -165,7 +166,7 @@ export default function CreateEventPage() {
               </p>
               <ul className="text-sm text-orange-600 space-y-1 ml-4">
                 <li>• Clique no ícone de localização na barra de endereços</li>
-                <li>• Selecione "Permitir" quando solicitado</li>
+                <li>• Selecione &quot;Permitir&quot; quando solicitado</li>
                 <li>• Recarregue a página</li>
               </ul>
             </div>
@@ -230,7 +231,7 @@ function EventCreationForm({ onSubmit, loading }: { onSubmit: (data: EventFormDa
   const [formData, setFormData] = useState({
     title: "",
     description: "",
-    category: "music",
+    category: EventCategory.MUSIC,
     startDate: "",
     endDate: "",
     priceType: "free" as "free" | "paid",
@@ -307,21 +308,21 @@ function EventCreationForm({ onSubmit, loading }: { onSubmit: (data: EventFormDa
           {/* Categoria */}
           <div className="space-y-2">
             <Label htmlFor="category">Categoria *</Label>
-            <Select value={formData.category} onValueChange={(value) => handleInputChange("category", value)}>
+            <Select value={formData.category} onValueChange={(value) => handleInputChange("category", value as EventCategory)}>
               <SelectTrigger>
                 <SelectValue placeholder="Selecione uma categoria" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="music">🎵 Música</SelectItem>
-                <SelectItem value="food">🍕 Gastronomia</SelectItem>
-                <SelectItem value="sports">⚽ Esporte</SelectItem>
-                <SelectItem value="culture">🎭 Cultura</SelectItem>
-                <SelectItem value="business">💼 Negócios</SelectItem>
-                <SelectItem value="education">📚 Educação</SelectItem>
-                <SelectItem value="health">💪 Saúde</SelectItem>
-                <SelectItem value="technology">💻 Tecnologia</SelectItem>
-                <SelectItem value="art">🎨 Arte</SelectItem>
-                <SelectItem value="fashion">👗 Moda</SelectItem>
+                <SelectItem value={EventCategory.MUSIC}>🎵 Música</SelectItem>
+                <SelectItem value={EventCategory.FOOD}>🍕 Gastronomia</SelectItem>
+                <SelectItem value={EventCategory.SPORTS}>⚽ Esporte</SelectItem>
+                <SelectItem value={EventCategory.CULTURE}>🎭 Cultura</SelectItem>
+                <SelectItem value={EventCategory.BUSINESS}>💼 Negócios</SelectItem>
+                <SelectItem value={EventCategory.EDUCATION}>📚 Educação</SelectItem>
+                <SelectItem value={EventCategory.HEALTH}>💪 Saúde</SelectItem>
+                <SelectItem value={EventCategory.TECHNOLOGY}>💻 Tecnologia</SelectItem>
+                <SelectItem value={EventCategory.ART}>🎨 Arte</SelectItem>
+                <SelectItem value={EventCategory.FASHION}>👗 Moda</SelectItem>
               </SelectContent>
             </Select>
           </div>

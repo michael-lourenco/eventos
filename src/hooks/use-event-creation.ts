@@ -31,11 +31,18 @@ export const useEventCreation = () => {
         startDate: formData.startDate,
         endDate: formData.endDate,
         organizerEmail: userData.email,
+        organizerName: userData.name || userData.email,
         status: EventStatus.ACTIVE,
         interestedBy: [],
         attendedBy: [],
-        price: formData.price,
+        price: formData.price.type === 'free' ? undefined : {
+          amount: formData.price.amount || 0,
+          currency: 'BRL',
+          type: formData.price.type
+        },
         capacity: formData.capacity,
+        currentAttendees: 0,
+        paymentStatus: 'pending',
         createdAt: new Date(),
         updatedAt: new Date(),
       }

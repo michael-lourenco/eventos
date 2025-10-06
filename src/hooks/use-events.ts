@@ -24,7 +24,7 @@ export const useEvents = () => {
     } finally {
       setLoading(false)
     }
-  }, [dbFirestore])
+  }, [])
 
   const loadAllEventsFromFirebase = useCallback(async () => {
     try {
@@ -39,7 +39,7 @@ export const useEvents = () => {
     } finally {
       setLoading(false)
     }
-  }, [dbFirestore])
+  }, [])
 
   const loadOrganizerEvents = useCallback(async (organizerEmail: string) => {
     try {
@@ -52,7 +52,7 @@ export const useEvents = () => {
     } finally {
       setLoading(false)
     }
-  }, [dbFirestore])
+  }, [])
 
   // Save a new event to Firebase
   const saveEventToFirebase = useCallback(async (eventData: Omit<Event, 'id'>) => {

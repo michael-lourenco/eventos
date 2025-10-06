@@ -87,8 +87,8 @@ export default function OrganizerDashboardPage() {
 
   const getEventStatus = (event: Event): string => {
     const now = new Date()
-    const startDate = new Date(event.startDate)
-    const endDate = new Date(event.endDate)
+    const startDate = event.startDate instanceof Date ? event.startDate : event.startDate.toDate()
+    const endDate = event.endDate instanceof Date ? event.endDate : event.endDate.toDate()
 
     if (event.status === EventStatusEnum.CANCELLED) return "Cancelado"
     if (event.status === EventStatusEnum.COMPLETED) return "Concluído"

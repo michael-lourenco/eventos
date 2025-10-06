@@ -65,7 +65,6 @@ const MapContent = ({
   const leafletRef = useRef<any>(null)
   const iconsRef = useRef<Record<string, any>>({})
   const mapInitializedRef = useRef<boolean>(false)
-  const defaultLocation: [number, number] = [-23.5902, -48.0338]
   const defaultZoom = 16
   const watchIdRef = useRef<number | null>(null)
 
@@ -81,7 +80,7 @@ const MapContent = ({
     return getFilteredMarkers(selectedTypes)
   }, [getFilteredMarkers, selectedTypes])
 
-  const onLikeMarker = async (marker: Marker) => {
+  const onLikeMarker = useCallback(async (marker: Marker) => {
     const userDataString = localStorage.getItem("user")
     const userData = userDataString ? JSON.parse(userDataString) : null
 
@@ -96,9 +95,9 @@ const MapContent = ({
       markers,
       setMarkers,
     )
-  }
+  }, [onNeedLogin, markers, setMarkers])
 
-  const onResolvedMarker = async (marker: Marker) => {
+  const onResolvedMarker = useCallback(async (marker: Marker) => {
     const userDataString = localStorage.getItem("user")
     const userData = userDataString ? JSON.parse(userDataString) : null
 
@@ -113,7 +112,7 @@ const MapContent = ({
       markers,
       setMarkers,
     )
-  }
+  }, [onNeedLogin, markers, setMarkers])
 
   const handleReportProblem = () => {
     const userDataString = localStorage.getItem("user")
@@ -268,6 +267,7 @@ const MapContent = ({
           },
         )
 
+        const defaultLocation: [number, number] = [-23.5902, -48.0338]
         let initialLocation = defaultLocation
         try {
           initialLocation = await Promise.race([
@@ -373,7 +373,6 @@ const MapContent = ({
     onLikeMarker,
     onResolvedMarker,
     setIsLoading,
-    defaultLocation,
     defaultZoom,
     updateMapMarkers
   ])

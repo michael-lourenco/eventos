@@ -13,6 +13,7 @@ import {
   getDoc,
   getDocs,
   getFirestore,
+  increment,
   orderBy,
   query,
   serverTimestamp,
@@ -116,7 +117,7 @@ async function getEventsByOrganizer(db: Firestore, organizerEmail: string) {
   return querySnapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
-  })).filter(event => event.organizerEmail === organizerEmail)
+  } as Event)).filter(event => event.organizerEmail === organizerEmail)
 }
 
 async function getActiveEvents(db: Firestore) {
@@ -127,7 +128,7 @@ async function getActiveEvents(db: Firestore) {
   return querySnapshot.docs.map((doc) => ({
     id: doc.id,
     ...doc.data(),
-  })).filter(event => event.status === "active" || event.status === "published")
+  } as Event)).filter(event => event.status === "active" || event.status === "published")
 }
 
 // Event Interactions
@@ -148,7 +149,7 @@ const updateEventAttendance = async (db: Firestore, eventId: string, userEmail: 
     const eventRef = doc(db, "events", eventId)
     await updateDoc(eventRef, {
       attendedBy: arrayUnion(userEmail),
-      currentAttendees: arrayUnion(userEmail).length,
+      currentAttendees: increment(1),
     })
   } catch (error) {
     console.error("Erro ao atualizar participação no evento:", error)
