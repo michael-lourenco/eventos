@@ -18,8 +18,11 @@ import {
   Navigation,
   Sun,
   Users,
+  User,
 } from "lucide-react"
 import { useTheme } from "next-themes"
+import { useAuth } from "@/hooks/use-auth"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 import Image from "next/image"
 import Link from "next/link"
@@ -63,6 +66,7 @@ function ThemeToggleDropdown() {
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { setTheme, theme } = useTheme()
+  const { user, loading } = useAuth()
 
   return (
     <div className="flex min-h-screen w-full flex-col">
@@ -99,14 +103,35 @@ export default function LandingPage() {
             </Link>
           </nav>
           <div className="flex items-center gap-4">
-            <Link href="/login">
-              <Button
-                variant="outline"
-                className="hidden bg-emerald-500 hover:bg-emerald-600 md:flex"
-              >
-                Entrar agora
-              </Button>
-            </Link>
+            {!loading && (
+              <>
+                {user ? (
+                  <Link href="/user">
+                    <Button
+                      variant="outline"
+                      className="hidden bg-emerald-500 hover:bg-emerald-600 md:flex items-center gap-2"
+                    >
+                      <Avatar className="h-6 w-6">
+                        <AvatarImage src={user.photoURL} alt={user.displayName} />
+                        <AvatarFallback className="text-xs">
+                          {user.displayName?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() || "U"}
+                        </AvatarFallback>
+                      </Avatar>
+                      <span className="hidden sm:inline">Minha Conta</span>
+                    </Button>
+                  </Link>
+                ) : (
+                  <Link href="/login">
+                    <Button
+                      variant="outline"
+                      className="hidden bg-emerald-500 hover:bg-emerald-600 md:flex"
+                    >
+                      Entrar agora
+                    </Button>
+                  </Link>
+                )}
+              </>
+            )}
             <div className="flex items-center gap-2">
               <ThemeToggleDropdown />
 
@@ -156,19 +181,41 @@ export default function LandingPage() {
                       Faça a diferença
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link
-                      href="/login"
-                      className="w-full"
-                    >
-                      <Button
-                        variant="outline"
+                  {user ? (
+                    <DropdownMenuItem asChild>
+                      <Link
+                        href="/user"
                         className="w-full"
                       >
-                        Entrar
-                      </Button>
-                    </Link>
-                  </DropdownMenuItem>
+                        <Button
+                          variant="outline"
+                          className="w-full flex items-center gap-2"
+                        >
+                          <Avatar className="h-5 w-5">
+                            <AvatarImage src={user.photoURL} alt={user.displayName} />
+                            <AvatarFallback className="text-xs">
+                              {user.displayName?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() || "U"}
+                            </AvatarFallback>
+                          </Avatar>
+                          Minha Conta
+                        </Button>
+                      </Link>
+                    </DropdownMenuItem>
+                  ) : (
+                    <DropdownMenuItem asChild>
+                      <Link
+                        href="/login"
+                        className="w-full"
+                      >
+                        <Button
+                          variant="outline"
+                          className="w-full"
+                        >
+                          Entrar
+                        </Button>
+                      </Link>
+                    </DropdownMenuItem>
+                  )}
                   <DropdownMenuItem asChild>
                     <Button className="w-full bg-emerald-500 hover:bg-emerald-600">
                       Baixar App
@@ -712,13 +759,23 @@ export default function LandingPage() {
                 </p>
               </div>
               <div className="flex flex-col gap-3 pt-6 sm:flex-row">
-                <Link
-                  href="/login"
-                  className="focus-visible:ring-ring inline-flex h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-medium text-emerald-500 shadow transition-colors hover:bg-gray-100 focus-visible:ring-1 focus-visible:outline-none"
-                >
-                  <FiLogIn className="mr-2 h-5 w-5" />
-                  Entrar agora
-                </Link>
+                {user ? (
+                  <Link
+                    href="/events"
+                    className="focus-visible:ring-ring inline-flex h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-medium text-emerald-500 shadow transition-colors hover:bg-gray-100 focus-visible:ring-1 focus-visible:outline-none"
+                  >
+                    <MapPin className="mr-2 h-5 w-5" />
+                    Ver Eventos
+                  </Link>
+                ) : (
+                  <Link
+                    href="/login"
+                    className="focus-visible:ring-ring inline-flex h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-medium text-emerald-500 shadow transition-colors hover:bg-gray-100 focus-visible:ring-1 focus-visible:outline-none"
+                  >
+                    <FiLogIn className="mr-2 h-5 w-5" />
+                    Entrar agora
+                  </Link>
+                )}
               </div>
             </div>
           </div>
