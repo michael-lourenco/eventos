@@ -10,7 +10,7 @@ export type AuthFailure = {
   valid: false
   error: string
 }
-
+// auth success or failure
 export type AuthResult = AuthSuccess | AuthFailure
 
 // Get the JWT secret from environment variables
