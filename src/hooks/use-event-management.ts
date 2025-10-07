@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { updateEvent, removeEvent, dbFirestore } from "@/services/events/EventService"
 import type { Event } from "@/components/event/types/event"
+import { EventStatus } from "@/components/event/types/event"
 
 export function useEventManagement() {
   const [loading, setLoading] = useState(false)
@@ -47,7 +48,7 @@ export function useEventManagement() {
     setError(null)
     
     try {
-      await updateEvent(dbFirestore, eventId, { status: "cancelled" })
+      await updateEvent(dbFirestore, eventId, { status: EventStatus.CANCELLED })
       console.log("Evento cancelado com sucesso:", eventId)
       return true
     } catch (error) {
