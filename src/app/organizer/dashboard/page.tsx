@@ -12,6 +12,7 @@ import { Calendar, MapPin, Users, Eye, Plus, Edit, Trash2, ExternalLink } from "
 import { format } from "date-fns"
 import type { Event, EventStatus } from "@/components/event/types/event"
 import { EventStatus as EventStatusEnum } from "@/components/event/types/event"
+import { InternalLayout } from "@/components/common/internal-layout"
 
 export default function OrganizerDashboardPage() {
   const router = useRouter()
@@ -126,34 +127,25 @@ export default function OrganizerDashboardPage() {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-center justify-between">
-          <div className="flex justify-between items-center">
-            <div>
-              <h1 className="text-3xl font-bold mb-2">Dashboard do Organizador</h1>
-              <p className="text-muted-foreground">
-                Gerencie seus eventos e acompanhe o engajamento
-              </p>
-            </div>
-            <div className="flex gap-2">
-              <Button 
-                onClick={() => loadAllEventsFromFirebase()}
-                variant="outline"
-                disabled={eventsLoading}
-              >
-                {eventsLoading ? "Carregando..." : "Atualizar"}
-              </Button>
-              <Link href="/organizer/create">
-                <Button>
-                  <Plus className="mr-2 h-4 w-4" />
-                  Criar Evento
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
+    <InternalLayout
+      title="Dashboard do Organizador"
+      subtitle="Gerencie seus eventos e acompanhe o engajamento"
+    >
+      {/* Action Buttons */}
+      <div className="flex justify-end gap-2 mb-8">
+        <Button 
+          onClick={() => loadAllEventsFromFirebase()}
+          variant="outline"
+          disabled={eventsLoading}
+        >
+          {eventsLoading ? "Carregando..." : "Atualizar"}
+        </Button>
+        <Link href="/organizer/create">
+          <Button>
+            <Plus className="mr-2 h-4 w-4" />
+            Criar Evento
+          </Button>
+        </Link>
       </div>
 
       {/* Stats Cards */}
@@ -276,6 +268,6 @@ export default function OrganizerDashboardPage() {
           )}
         </CardContent>
       </Card>
-    </div>
+    </InternalLayout>
   )
 }

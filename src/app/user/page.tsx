@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { MapPin, Calendar, Plus, LogOut } from "lucide-react"
 import Link from "next/link"
+import { InternalLayout } from "@/components/common/internal-layout"
 
 export default function UserPage() {
   const { user, loading, handleLogout } = useAuth()
@@ -44,18 +45,11 @@ export default function UserPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
-      <div className="container mx-auto px-4 max-w-4xl">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <MapPin className="h-8 w-8 text-emerald-500" />
-            <h1 className="text-3xl font-bold text-emerald-700">Eventos Locais</h1>
-          </div>
-          <p className="text-muted-foreground">
-            Bem-vindo à sua área de usuário
-          </p>
-        </div>
+    <InternalLayout
+      title="Minha Conta"
+      subtitle="Bem-vindo à sua área de usuário"
+    >
+      <div className="max-w-4xl mx-auto">
 
         {/* User Profile Card */}
         <Card className="mb-8">
@@ -147,6 +141,6 @@ export default function UserPage() {
           </CardContent>
         </Card>
       </div>
-    </div>
+    </InternalLayout>
   )
 }

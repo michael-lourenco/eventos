@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
+import { InternalLayout } from "@/components/common/internal-layout"
 
 export default function CreateEventPage() {
   const router = useRouter()
@@ -71,25 +72,19 @@ export default function CreateEventPage() {
   }
 
   return (
-    <div className="container mx-auto py-8 px-4">
-      {/* Header */}
-      <div className="mb-8">
+    <InternalLayout
+      title="Criar Evento"
+      subtitle="Publique seu evento no mapa para que pessoas próximas possam encontrá-lo"
+    >
+      {/* Back Button */}
+      <div className="mb-6">
         <Button
           variant="ghost"
           onClick={() => router.back()}
-          className="mb-4"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Voltar
         </Button>
-        
-        <div className="flex items-center gap-2 mb-2">
-          <MapPin className="h-6 w-6 text-emerald-500" />
-          <h1 className="text-3xl font-bold">Criar Evento</h1>
-        </div>
-        <p className="text-muted-foreground">
-          Publique seu evento no mapa para que pessoas próximas possam encontrá-lo
-        </p>
       </div>
 
       {/* Location Error Alert */}
@@ -221,7 +216,7 @@ export default function CreateEventPage() {
           <p>• O evento ficará visível até a data de término</p>
         </CardContent>
       </Card>
-    </div>
+    </InternalLayout>
   )
 }
 
