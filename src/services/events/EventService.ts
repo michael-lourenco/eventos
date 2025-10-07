@@ -53,11 +53,20 @@ console.log("EventService: dbFirestore:", dbFirestore)
 // Função para limpar campos undefined/null
 function cleanEventData(data: any): any {
   const cleaned = { ...data }
+  
+  // Remove campos undefined ou null
   Object.keys(cleaned).forEach(key => {
     if (cleaned[key] === undefined || cleaned[key] === null) {
       delete cleaned[key]
     }
   })
+  
+  // Se price é undefined, null ou objeto vazio, remove completamente
+  if (cleaned.price === undefined || cleaned.price === null || 
+      (typeof cleaned.price === 'object' && Object.keys(cleaned.price).length === 0)) {
+    delete cleaned.price
+  }
+  
   return cleaned
 }
 
@@ -85,7 +94,11 @@ async function addEvent(db: Firestore, eventData: Omit<Event, 'id'>): Promise<st
 
 async function updateEvent(db: Firestore, eventId: string, updatedData: Partial<Event>): Promise<void> {
   const eventRef = doc(db, "events", eventId)
-  await updateDoc(eventRef, updatedData)
+  
+  // Remove campos undefined para evitar erro do Firebase
+  const cleanedData = cleanEventData(updatedData)
+  
+  await updateDoc(eventRef, cleanedData)
 }
 
 async function removeEvent(db: Firestore, eventId: string): Promise<void> {

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { useAuth } from "@/hooks/use-auth"
 import { useEvents } from "@/hooks/use-events"
+import { useEventManagement } from "@/hooks/use-event-management"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -13,11 +14,19 @@ import { format } from "date-fns"
 import type { Event, EventStatus } from "@/components/event/types/event"
 import { EventStatus as EventStatusEnum } from "@/components/event/types/event"
 import { InternalLayout } from "@/components/common/internal-layout"
+import { EventEditModal } from "@/components/event/event-edit-modal"
+import { EventDeleteModal } from "@/components/event/event-delete-modal"
+import { toast } from "sonner"
 
 export default function OrganizerDashboardPage() {
   const router = useRouter()
   const { user, loading: authLoading } = useAuth()
   const { events, loadAllEventsFromFirebase, loading: eventsLoading } = useEvents()
+  const { editEvent, deleteEvent, loading: managementLoading, error: managementError } = useEventManagement()
+  
+  // Estados para modais
+  const [editingEvent, setEditingEvent] = useState<Event | null>(null)
+  const [deletingEvent, setDeletingEvent] = useState<Event | null>(null)
   
   // Função auxiliar para formatar datas
   const formatEventDate = (date: any) => {
@@ -72,6 +81,29 @@ export default function OrganizerDashboardPage() {
     }
     setStats(newStats)
   }, [organizerEvents])
+
+  // Funções de gerenciamento de eventos
+  const handleEditEvent = async (eventId: string, updatedData: Partial<Event>) => {
+    const success = await editEvent(eventId, updatedData)
+    if (success) {
+      toast.success("Evento editado com sucesso!")
+      await loadAllEventsFromFirebase() // Recarregar lista
+    } else {
+      toast.error("Erro ao editar evento")
+    }
+    return success
+  }
+
+  const handleDeleteEvent = async (eventId: string) => {
+    const success = await deleteEvent(eventId)
+    if (success) {
+      toast.success("Evento excluído com sucesso!")
+      await loadAllEventsFromFirebase() // Recarregar lista
+    } else {
+      toast.error("Erro ao excluir evento")
+    }
+    return success
+  }
 
   const getStatusBadge = (status: EventStatus) => {
     const statusConfig = {
@@ -249,15 +281,28 @@ export default function OrganizerDashboardPage() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <Button variant="outline" size="sm">
-                      <ExternalLink className="h-3 w-3 mr-1" />
-                      Ver
+                    <Button variant="outline" size="sm" asChild>
+                      <Link href={`/events?event=${event.id}`}>
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        Ver
+                      </Link>
                     </Button>
-                    <Button variant="outline" size="sm">
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => setEditingEvent(event)}
+                      disabled={managementLoading}
+                    >
                       <Edit className="h-3 w-3 mr-1" />
                       Editar
                     </Button>
-                    <Button variant="outline" size="sm" className="text-red-600 hover:text-red-700">
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="text-red-600 hover:text-red-700"
+                      onClick={() => setDeletingEvent(event)}
+                      disabled={managementLoading}
+                    >
                       <Trash2 className="h-3 w-3 mr-1" />
                       Excluir
                     </Button>
@@ -268,6 +313,27 @@ export default function OrganizerDashboardPage() {
           )}
         </CardContent>
       </Card>
+
+      {/* Modals */}
+      {editingEvent && (
+        <EventEditModal
+          event={editingEvent}
+          open={!!editingEvent}
+          onOpenChange={(open) => !open && setEditingEvent(null)}
+          onSave={handleEditEvent}
+          loading={managementLoading}
+        />
+      )}
+
+      {deletingEvent && (
+        <EventDeleteModal
+          event={deletingEvent}
+          open={!!deletingEvent}
+          onOpenChange={(open) => !open && setDeletingEvent(null)}
+          onConfirm={handleDeleteEvent}
+          loading={managementLoading}
+        />
+      )}
     </InternalLayout>
   )
 }
