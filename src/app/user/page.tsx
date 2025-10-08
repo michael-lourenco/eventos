@@ -24,7 +24,7 @@ export default function UserPage() {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500 mx-auto mb-4"></div>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-500 mx-auto mb-4"></div>
           <p className="text-lg font-medium">Carregando...</p>
         </div>
       </div>
@@ -82,7 +82,7 @@ export default function UserPage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Plus className="h-5 w-5 text-emerald-500" />
+                <Plus className="h-5 w-5 text-cyan-500" />
                 Criar Evento
               </CardTitle>
               <CardDescription>
@@ -102,7 +102,7 @@ export default function UserPage() {
           <Card className="hover:shadow-lg transition-shadow">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Calendar className="h-5 w-5 text-emerald-500" />
+                <Calendar className="h-5 w-5 text-cyan-500" />
                 Meus Eventos
               </CardTitle>
               <CardDescription>
@@ -124,7 +124,7 @@ export default function UserPage() {
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-emerald-500" />
+              <MapPin className="h-5 w-5 text-cyan-500" />
               Explorar Eventos
             </CardTitle>
             <CardDescription>

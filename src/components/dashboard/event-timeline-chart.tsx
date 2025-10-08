@@ -128,7 +128,7 @@ export function EventTimelineChart({ events }: EventTimelineChartProps) {
         <Line
           type="monotone"
           dataKey="criados"
-          stroke="#10b981"
+          stroke="#21b6bf"
           strokeWidth={2}
           name="criados"
         />

@@ -41,7 +41,7 @@ export default function EventsPage() {
             <Button
               onClick={() => router.push("/organizer/create")}
               size="sm"
-              className="bg-emerald-600 hover:bg-emerald-700"
+              className="bg-cyan-600 hover:bg-cyan-700"
             >
               <Plus className="h-4 w-4 mr-2" />
               Criar Evento
@@ -51,7 +51,7 @@ export default function EventsPage() {
           <Button
             onClick={() => router.push("/login")}
             size="sm"
-            className="bg-emerald-600 hover:bg-emerald-700"
+            className="bg-cyan-600 hover:bg-cyan-700"
           >
             <Plus className="h-4 w-4 mr-2" />
             Criar Evento

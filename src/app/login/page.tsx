@@ -38,18 +38,18 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-slate-50 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-cyan-50 via-white to-slate-50 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Header */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 mb-4">
+          <Link href="/" className="inline-flex items-center gap-2 text-cyan-600 hover:text-cyan-700 mb-4">
             <ArrowLeft className="h-4 w-4" />
             Voltar ao início
           </Link>
           
           <div className="flex items-center justify-center gap-2 mb-4">
-            <MapPin className="h-8 w-8 text-emerald-500" />
-            <h1 className="text-2xl font-bold text-emerald-700">Eventos Locais</h1>
+            <MapPin className="h-8 w-8 text-cyan-500" />
+            <h1 className="text-2xl font-bold text-cyan-700">Eventos Locais</h1>
           </div>
           
           <p className="text-muted-foreground">
@@ -111,11 +111,11 @@ export default function LoginPage() {
 
             <div className="text-center text-sm text-muted-foreground">
               Ao continuar, você concorda com nossos{" "}
-              <Link href="#" className="text-emerald-600 hover:underline">
+              <Link href="#" className="text-cyan-600 hover:underline">
                 Termos de Serviço
               </Link>{" "}
               e{" "}
-              <Link href="#" className="text-emerald-600 hover:underline">
+              <Link href="#" className="text-cyan-600 hover:underline">
                 Política de Privacidade
               </Link>
             </div>
@@ -127,19 +127,19 @@ export default function LoginPage() {
           <h3 className="text-lg font-medium mb-4">O que você pode fazer:</h3>
           <div className="grid grid-cols-1 gap-3 text-sm text-muted-foreground">
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+              <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
               <span>Criar e publicar eventos</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+              <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
               <span>Demonstrar interesse em eventos</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+              <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
               <span>Confirmar participação</span>
             </div>
             <div className="flex items-center justify-center gap-2">
-              <div className="w-2 h-2 bg-emerald-500 rounded-full"></div>
+              <div className="w-2 h-2 bg-cyan-500 rounded-full"></div>
               <span>Acessar dashboard do organizador</span>
             </div>
           </div>

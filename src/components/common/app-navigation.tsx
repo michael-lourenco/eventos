@@ -72,8 +72,8 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <MapPin className="h-6 w-6 text-emerald-500" />
-              <span className="text-xl font-bold text-emerald-700">Eventos Locais</span>
+              <MapPin className="h-6 w-6 text-cyan-500" />
+              <span className="text-xl font-bold text-cyan-700">Eventos Locais</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -91,8 +91,8 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
                     className={cn(
                       "flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors",
                       isActive 
-                        ? "bg-emerald-100 text-emerald-700" 
-                        : "text-gray-600 hover:text-emerald-600 hover:bg-gray-50"
+                        ? "bg-cyan-100 text-cyan-700" 
+                        : "text-gray-600 hover:text-cyan-600 hover:bg-gray-50"
                     )}
                   >
                     <Icon className="h-4 w-4" />
@@ -106,11 +106,11 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
             <div className="hidden md:flex items-center gap-4">
               {user ? (
                 <div className="flex items-center gap-2">
-                  <Button asChild variant="outline" size="sm" className="bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-500">
+                  <Button asChild variant="outline" size="sm" className="bg-cyan-500 hover:bg-cyan-600 text-white border-cyan-500">
                     <Link href="/user">
                       <Avatar className="h-6 w-6 mr-2">
                         <AvatarImage src={user.photoURL} alt={user.displayName} />
-                        <AvatarFallback className="text-xs bg-white text-emerald-600">
+                        <AvatarFallback className="text-xs bg-white text-cyan-600">
                           {user.displayName?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() || "U"}
                         </AvatarFallback>
                       </Avatar>
@@ -171,8 +171,8 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
                       className={cn(
                         "flex items-center gap-3 px-3 py-3 rounded-md text-sm font-medium transition-colors",
                         isActive 
-                          ? "bg-emerald-100 text-emerald-700" 
-                          : "text-gray-600 hover:text-emerald-600 hover:bg-gray-50"
+                          ? "bg-cyan-100 text-cyan-700" 
+                          : "text-gray-600 hover:text-cyan-600 hover:bg-gray-50"
                       )}
                     >
                       <Icon className="h-4 w-4" />
@@ -189,11 +189,11 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
               <div className="mt-6 pt-6 border-t border-gray-200">
                 {user ? (
                   <div className="flex items-center gap-2 px-3 py-3">
-                    <Button asChild variant="outline" className="flex-1 bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-500">
+                    <Button asChild variant="outline" className="flex-1 bg-cyan-500 hover:bg-cyan-600 text-white border-cyan-500">
                       <Link href="/user" onClick={() => setIsMobileMenuOpen(false)}>
                         <Avatar className="h-5 w-5 mr-2">
                           <AvatarImage src={user.photoURL} alt={user.displayName} />
-                          <AvatarFallback className="text-xs bg-white text-emerald-600">
+                          <AvatarFallback className="text-xs bg-white text-cyan-600">
                             {user.displayName?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() || "U"}
                           </AvatarFallback>
                         </Avatar>

@@ -59,7 +59,7 @@ export default function CreateEventPage() {
       <div className="container mx-auto py-8">
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-emerald-500 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-500 mx-auto mb-4"></div>
             <p className="text-lg font-medium">Carregando...</p>
           </div>
         </div>
@@ -103,7 +103,7 @@ export default function CreateEventPage() {
         <Card className="mb-6">
           <CardContent className="pt-6">
             <div className="flex items-center gap-2">
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-emerald-500"></div>
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-cyan-500"></div>
               <span className="text-sm text-muted-foreground">
                 Obtendo sua localização...
               </span>
@@ -115,7 +115,7 @@ export default function CreateEventPage() {
       {location && !locationLoading && (
         <Card className="mb-6">
           <CardContent className="pt-6">
-            <div className="flex items-center gap-2 text-sm text-emerald-600">
+            <div className="flex items-center gap-2 text-sm text-cyan-600">
               <MapPin className="h-4 w-4" />
               <span>
                 Localização obtida: {location.lat.toFixed(6)}, {location.lng.toFixed(6)}
@@ -191,7 +191,7 @@ export default function CreateEventPage() {
         <Card className="mb-6">
           <CardContent className="py-8">
             <div className="flex items-center justify-center space-x-2">
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-emerald-500"></div>
+              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-cyan-500"></div>
               <p className="text-muted-foreground">Obtendo sua localização...</p>
             </div>
           </CardContent>
@@ -267,7 +267,7 @@ function EventCreationForm({ onSubmit, loading }: { onSubmit: (data: EventFormDa
         <CardDescription>
           Preencha os detalhes do seu evento para publicá-lo no mapa
           {location && (
-            <span className="block mt-2 text-sm text-emerald-600">
+            <span className="block mt-2 text-sm text-cyan-600">
               📍 Localização atual: {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
             </span>
           )}

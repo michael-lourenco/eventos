@@ -48,7 +48,7 @@ export function AttendanceChart({ events }: AttendanceChartProps) {
         />
         <Bar
           dataKey="participantes"
-          fill="#10b981"
+          fill="#21b6bf"
           name="Participantes"
           radius={[4, 4, 0, 0]}
         />

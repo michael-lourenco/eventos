@@ -67,7 +67,7 @@ export const UserStatistics: React.FC<UserStatisticsProps> = ({ user }) => {
                 title="Coins"
                 value={user?.currency?.value ?? 0}
                 icon={Coins}
-                color="bg-emerald-500/10 text-emerald-500"
+                color="bg-cyan-500/10 text-cyan-500"
               />
               <StatCard
                 title="Total Games"

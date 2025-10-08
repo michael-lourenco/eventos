@@ -299,8 +299,8 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
       )}
       
       {location && (
-        <div className="absolute top-4 left-4 bg-green-100 border border-green-300 p-2 rounded shadow z-[1000]">
-          <p className="text-sm text-green-700">Localização obtida com sucesso!</p>
+        <div className="absolute top-4 left-4 bg-cyan-100 border border-cyan-300 p-2 rounded shadow z-[1000]">
+          <p className="text-sm text-cyan-700">Localização obtida com sucesso!</p>
         </div>
       )}
     </div>

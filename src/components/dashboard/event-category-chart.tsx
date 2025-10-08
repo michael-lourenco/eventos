@@ -9,7 +9,7 @@ interface EventCategoryChartProps {
 }
 
 const COLORS = [
-  "#10b981", // emerald
+  "#21b6bf", // emerald
   "#3b82f6", // blue
   "#f59e0b", // amber
   "#ef4444", // red

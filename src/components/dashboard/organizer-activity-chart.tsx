@@ -48,7 +48,7 @@ export function OrganizerActivityChart({ events }: OrganizerActivityChartProps) 
         />
         <Bar
           dataKey="eventos"
-          fill="#10b981"
+          fill="#21b6bf"
           radius={[0, 4, 4, 0]}
         />
       </BarChart>

@@ -147,7 +147,7 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
         <div class="p-3 min-w-[250px]">
           <div class="flex items-start justify-between mb-2">
             <h3 class="font-semibold text-sm leading-tight">${event.title}</h3>
-            <span class="text-xs bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full ml-2">
+            <span class="text-xs bg-cyan-100 text-cyan-800 px-2 py-1 rounded-full ml-2">
               ${getEventCategoryLabel(event.category)}
             </span>
           </div>
@@ -178,7 +178,7 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
                 R$ ${event.price.amount?.toFixed(2)}
               </div>
             ` : `
-              <div class="flex items-center text-xs text-green-600">
+              <div class="flex items-center text-xs text-cyan-600">
                 <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
@@ -206,7 +206,7 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
             <button 
               class="flex-1 px-3 py-1 text-xs rounded-md transition-colors ${
                 isInterested 
-                  ? 'bg-emerald-100 text-emerald-800 hover:bg-emerald-200' 
+                  ? 'bg-cyan-100 text-cyan-800 hover:bg-emerald-200' 
                   : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }"
               data-event-id="${event.id}"
@@ -309,7 +309,7 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
       {locationLoading && (
         <div className="absolute top-4 right-4 z-[1000] bg-white rounded-lg shadow-lg p-3">
           <div className="flex items-center gap-2 text-sm">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-emerald-500"></div>
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-cyan-500"></div>
             <span>Obtendo localização...</span>
           </div>
         </div>
@@ -318,7 +318,7 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
       {/* Events Count */}
       <div className="absolute bottom-4 left-4 z-[1000] bg-white rounded-lg shadow-lg p-3">
         <div className="flex items-center gap-2 text-sm">
-          <MapPin className="h-4 w-4 text-emerald-500" />
+          <MapPin className="h-4 w-4 text-cyan-500" />
           <span>{filteredEvents.length} eventos próximos</span>
         </div>
       </div>

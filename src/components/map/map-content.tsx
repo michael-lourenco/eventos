@@ -199,7 +199,7 @@ const MapContent = ({
             <span style="font-size: 0.98em;">${marker.userEmail || "Anônimo"}</span>
           </div>
           <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 10px;">
-            <span style="font-size: 1.1em; color: #22c55e;">📋</span>
+            <span style="font-size: 1.1em; color: #21b6bf;">📋</span>
             <span style="font-size: 0.98em;">${marker.currentStatus || "Reportado"}</span>
           </div>
           <div style="display: flex; gap: 8px; margin-top: 10px;">
@@ -207,7 +207,7 @@ const MapContent = ({
               <span style="color: #f59e42; font-size: 1.1em;">👍</span> <span>${marker.likedBy?.length || 0}</span>
             </button>
             <button class="resolved-button" style="display: flex; align-items: center; gap: 4px; background: #f1f5f9; border: none; border-radius: 6px; padding: 4px 10px; cursor: pointer; font-size: 1em; transition: background 0.2s;">
-              <span style="color: #22c55e; font-size: 1.1em;">✅</span> <span>${marker.resolvedBy?.length || 0}</span>
+              <span style="color: #21b6bf; font-size: 1.1em;">✅</span> <span>${marker.resolvedBy?.length || 0}</span>
             </button>
           </div>
         </div>
