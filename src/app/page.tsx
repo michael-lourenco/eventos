@@ -73,31 +73,31 @@ export default function LandingPage() {
       <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 fixed top-0 z-50 flex w-full flex-col items-center border-b backdrop-blur">
         <div className="container flex h-16 items-center justify-between px-4 md:px-6">
           <div className="flex items-center gap-2">
-            <MapPin className="h-6 w-6 text-cyan-500" />
+            <MapPin className="h-6 w-6 text-primary" />
             <span className="text-xl font-bold">Eventos Locais</span>
           </div>
           <nav className="hidden gap-6 md:flex">
             <Link
               href="#features"
-              className="text-sm font-medium transition-colors hover:text-cyan-500"
+              className="text-sm font-medium transition-colors hover:text-primary"
             >
               Funcionalidades
             </Link>
             <Link
               href="#benefits"
-              className="text-sm font-medium transition-colors hover:text-cyan-500"
+              className="text-sm font-medium transition-colors hover:text-primary"
             >
               Benefícios
             </Link>
             <Link
               href="#showcase"
-              className="text-sm font-medium transition-colors hover:text-cyan-500"
+              className="text-sm font-medium transition-colors hover:text-primary"
             >
               Demonstração
             </Link>
             <Link
               href="#download"
-              className="text-sm font-medium transition-colors hover:text-cyan-500"
+              className="text-sm font-medium transition-colors hover:text-primary"
             >
               Download
             </Link>
@@ -109,7 +109,7 @@ export default function LandingPage() {
                   <Link href="/user">
                     <Button
                       variant="outline"
-                      className="hidden bg-cyan-500 hover:bg-cyan-600 md:flex items-center gap-2"
+                      className="hidden bg-primary hover:bg-primary/90 md:flex items-center gap-2"
                     >
                       <Avatar className="h-6 w-6">
                         <AvatarImage src={user.photoURL} alt={user.displayName} />
@@ -124,7 +124,7 @@ export default function LandingPage() {
                   <Link href="/login">
                     <Button
                       variant="outline"
-                      className="hidden bg-cyan-500 hover:bg-cyan-600 md:flex"
+                      className="hidden bg-primary hover:bg-primary/90 md:flex"
                     >
                       Entrar agora
                     </Button>
@@ -217,7 +217,7 @@ export default function LandingPage() {
                     </DropdownMenuItem>
                   )}
                   <DropdownMenuItem asChild>
-                    <Button className="w-full bg-cyan-500 hover:bg-cyan-600">
+                    <Button className="w-full bg-primary hover:bg-primary/90">
                       Baixar App
                     </Button>
                   </DropdownMenuItem>
@@ -229,17 +229,17 @@ export default function LandingPage() {
       </header>
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative flex w-full flex-col items-center overflow-hidden bg-gradient-to-b from-cyan-50 via-white to-slate-50 py-16 md:py-28 lg:py-36">
+        <section className="relative flex w-full flex-col items-center overflow-hidden bg-gradient-to-b from-primary/5 via-background to-muted py-16 md:py-28 lg:py-36">
           <div className="relative z-10 container px-4 md:px-6">
             <div className="grid min-h-[60vh] items-center justify-center gap-12 lg:grid-cols-2">
               <div className="mx-auto flex flex-col items-center justify-center space-y-8 text-center lg:items-start lg:text-left">
                 <div className="space-y-6">
-                  <h1 className="text-4xl font-extrabold tracking-tight text-cyan-700 drop-shadow-sm md:text-5xl xl:text-6xl">
+                  <h1 className="text-4xl font-extrabold tracking-tight text-primary drop-shadow-sm md:text-5xl xl:text-6xl">
                     Descubra Eventos Incríveis Próximos a Você
                   </h1>
-                  <p className="max-w-xl text-lg font-medium text-slate-700 md:text-2xl">
+                  <p className="max-w-xl text-lg font-medium text-foreground md:text-2xl">
                     A plataforma{" "}
-                    <span className="font-bold text-cyan-600">Eventos Locais</span>{" "}
+                    <span className="font-bold text-primary">Eventos Locais</span>{" "}
                     conecta organizadores e participantes para criar experiências
                     únicas na sua cidade.
                   </p>
@@ -248,7 +248,7 @@ export default function LandingPage() {
                   <Link href="/events">
                     <Button
                       size="lg"
-                      className="bg-cyan-600 px-8 py-6 text-lg shadow-lg hover:bg-cyan-700"
+                      className="bg-primary px-8 py-6 text-lg shadow-lg hover:bg-primary/90"
                     >
                       Comece Agora
                       <Download className="ml-2 h-5 w-5" />
@@ -258,7 +258,7 @@ export default function LandingPage() {
                     <Button
                       size="lg"
                       variant="outline"
-                      className="border-cyan-500 px-8 py-6 text-lg text-cyan-700 hover:bg-cyan-50"
+                      className="border-primary px-8 py-6 text-lg text-primary hover:bg-primary/5"
                     >
                       Saiba Mais
                       <ChevronRight className="ml-2 h-5 w-5" />
@@ -279,18 +279,18 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
-          <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-cyan-100/40 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 z-0 opacity-40 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
         </section>
 
         {/* Features Section */}
         <section
           id="features"
-          className="flex w-full flex-col items-center bg-white py-16 md:py-28 lg:py-36"
+          className="flex w-full flex-col items-center bg-card py-16 md:py-28 lg:py-36"
         >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-4xl font-extrabold tracking-tight text-cyan-700">
+                <h2 className="text-4xl font-extrabold tracking-tight text-primary">
                   Funcionalidades Poderosas
                 </h2>
                 <p className="text-muted-foreground max-w-[900px] md:text-xl/relaxed">
@@ -300,58 +300,58 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="mt-16 grid gap-10 md:grid-cols-3">
-              <div className="flex flex-col items-center gap-6 rounded-3xl border border-cyan-100 bg-cyan-50 p-8 text-center shadow-lg transition hover:shadow-2xl">
-                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-white">
-                  <MapPin className="h-10 w-10 text-cyan-500" />
+              <div className="flex flex-col items-center gap-6 rounded-3xl border border-primary/10 bg-primary/5 p-8 text-center shadow-lg transition hover:shadow-2xl">
+                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-card">
+                  <MapPin className="h-10 w-10 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-cyan-700">
+                <h3 className="text-xl font-bold text-primary">
                   Criação de Eventos
                 </h3>
-                <p className="text-base text-slate-700">
+                <p className="text-base text-foreground">
                   Crie e publique eventos em segundos, com foto, localização
                   e categoria. Simples, rápido e eficiente.
                 </p>
               </div>
-              <div className="flex flex-col items-center gap-6 rounded-3xl border border-cyan-100 bg-cyan-50 p-8 text-center shadow-lg transition hover:shadow-2xl">
-                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-white">
-                  <Navigation className="h-10 w-10 text-cyan-500" />
+              <div className="flex flex-col items-center gap-6 rounded-3xl border border-primary/10 bg-primary/5 p-8 text-center shadow-lg transition hover:shadow-2xl">
+                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-card">
+                  <Navigation className="h-10 w-10 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-cyan-700">
+                <h3 className="text-xl font-bold text-primary">
                   Mapa Interativo
                 </h3>
-                <p className="text-base text-slate-700">
+                <p className="text-base text-foreground">
                   Visualize todos os eventos próximos em um mapa dinâmico,
                   com filtros e ícones personalizados.
                 </p>
               </div>
-              <div className="flex flex-col items-center gap-6 rounded-3xl border border-cyan-100 bg-cyan-50 p-8 text-center shadow-lg transition hover:shadow-2xl">
-                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-white">
-                  <Users className="h-10 w-10 text-cyan-500" />
+              <div className="flex flex-col items-center gap-6 rounded-3xl border border-primary/10 bg-primary/5 p-8 text-center shadow-lg transition hover:shadow-2xl">
+                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-card">
+                  <Users className="h-10 w-10 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-cyan-700">
+                <h3 className="text-xl font-bold text-primary">
                   Engajamento Comunitário
                 </h3>
-                <p className="text-base text-slate-700">
+                <p className="text-base text-foreground">
                   Demonstre interesse, confirme participação e conecte-se com
                   outros participantes para criar experiências únicas.
                 </p>
               </div>
-              <div className="flex flex-col items-center gap-6 rounded-3xl border border-cyan-100 bg-cyan-50 p-8 text-center shadow-lg transition hover:shadow-2xl">
-                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-white">
-                  <Bell className="h-10 w-10 text-cyan-500" />
+              <div className="flex flex-col items-center gap-6 rounded-3xl border border-primary/10 bg-primary/5 p-8 text-center shadow-lg transition hover:shadow-2xl">
+                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-card">
+                  <Bell className="h-10 w-10 text-primary" />
                 </div>
-                <h3 className="text-xl font-bold text-cyan-700">
+                <h3 className="text-xl font-bold text-primary">
                   Notificações em Tempo Real
                 </h3>
-                <p className="text-base text-slate-700">
+                <p className="text-base text-foreground">
                   Receba atualizações sobre novos eventos próximos a você
                   e mudanças nos eventos que você está interessado.
                 </p>
               </div>
-              <div className="flex flex-col items-center gap-6 rounded-3xl border border-cyan-100 bg-cyan-50 p-8 text-center shadow-lg transition hover:shadow-2xl">
-                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-white">
+              <div className="flex flex-col items-center gap-6 rounded-3xl border border-primary/10 bg-primary/5 p-8 text-center shadow-lg transition hover:shadow-2xl">
+                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-card">
                   <svg
-                    className="h-10 w-10 text-cyan-500"
+                    className="h-10 w-10 text-primary"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -361,18 +361,18 @@ export default function LandingPage() {
                     <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-cyan-700">
+                <h3 className="text-xl font-bold text-primary">
                   Eventos Populares
                 </h3>
-                <p className="text-base text-slate-700">
+                <p className="text-base text-foreground">
                   A comunidade destaca os eventos mais interessantes,
                   ajudando você a descobrir as melhores experiências.
                 </p>
               </div>
-              <div className="flex flex-col items-center gap-6 rounded-3xl border border-cyan-100 bg-cyan-50 p-8 text-center shadow-lg transition hover:shadow-2xl">
-                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-white">
+              <div className="flex flex-col items-center gap-6 rounded-3xl border border-primary/10 bg-primary/5 p-8 text-center shadow-lg transition hover:shadow-2xl">
+                <div className="mb-2 flex h-16 w-16 items-center justify-center rounded-full bg-card">
                   <svg
-                    className="h-10 w-10 text-cyan-500"
+                    className="h-10 w-10 text-primary"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -382,10 +382,10 @@ export default function LandingPage() {
                     <path d="m19 9-5 5-4-4-3 3" />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold text-cyan-700">
+                <h3 className="text-xl font-bold text-primary">
                   Histórico de Eventos
                 </h3>
-                <p className="text-base text-slate-700">
+                <p className="text-base text-foreground">
                   Acompanhe os eventos que você participou e descubra
                   novas experiências baseadas em seus interesses.
                 </p>
@@ -395,10 +395,10 @@ export default function LandingPage() {
         </section>
 
         {/* Testimonials Section */}
-        <section className="flex w-full flex-col items-center bg-cyan-50 py-16 md:py-28 lg:py-36">
+        <section className="flex w-full flex-col items-center bg-primary/5 py-16 md:py-28 lg:py-36">
           <div className="container px-4 md:px-6">
             <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
-              <h2 className="text-4xl font-extrabold tracking-tight text-cyan-700">
+              <h2 className="text-4xl font-extrabold tracking-tight text-primary">
                 Depoimentos de Quem Usa
               </h2>
               <p className="text-muted-foreground max-w-[700px] md:text-xl/relaxed">
@@ -407,7 +407,7 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="grid gap-10 md:grid-cols-3">
-              <div className="flex flex-col items-center rounded-2xl border border-cyan-100 bg-white p-8 text-center shadow-lg">
+              <div className="flex flex-col items-center rounded-2xl border border-primary/10 bg-card p-8 text-center shadow-lg">
                 <Image
                   src="https://randomuser.me/api/portraits/men/32.jpg"
                   width={72}
@@ -415,16 +415,16 @@ export default function LandingPage() {
                   alt="Depoimento usuário 1"
                   className="mb-4 rounded-full"
                 />
-                <p className="text-lg text-slate-700 italic">
+                <p className="text-lg text-foreground italic">
                   &quot;Com Eventos Locais, descobri um festival de música incrível
                   a poucos minutos de casa. Nunca foi tão fácil encontrar eventos
                   próximos!&quot;
                 </p>
-                <span className="mt-4 font-semibold text-cyan-700">
+                <span className="mt-4 font-semibold text-primary">
                   Carlos, participante ativo
                 </span>
               </div>
-              <div className="flex flex-col items-center rounded-2xl border border-cyan-100 bg-white p-8 text-center shadow-lg">
+              <div className="flex flex-col items-center rounded-2xl border border-primary/10 bg-card p-8 text-center shadow-lg">
                 <Image
                   src="https://randomuser.me/api/portraits/women/44.jpg"
                   width={72}
@@ -432,16 +432,16 @@ export default function LandingPage() {
                   alt="Depoimento usuária 2"
                   className="mb-4 rounded-full"
                 />
-                <p className="text-lg text-slate-700 italic">
+                <p className="text-lg text-foreground italic">
                   &quot;Organizei meu primeiro evento pela plataforma e tive uma
                   participação incrível! A ferramenta facilita muito a divulgação
                   local.&quot;
                 </p>
-                <span className="mt-4 font-semibold text-cyan-700">
+                <span className="mt-4 font-semibold text-primary">
                   Juliana, organizadora de eventos
                 </span>
               </div>
-              <div className="flex flex-col items-center rounded-2xl border border-cyan-100 bg-white p-8 text-center shadow-lg">
+              <div className="flex flex-col items-center rounded-2xl border border-primary/10 bg-card p-8 text-center shadow-lg">
                 <Image
                   src="https://randomuser.me/api/portraits/men/65.jpg"
                   width={72}
@@ -449,11 +449,11 @@ export default function LandingPage() {
                   alt="Depoimento gestor público"
                   className="mb-4 rounded-full"
                 />
-                <p className="text-lg text-slate-700 italic">
+                <p className="text-lg text-foreground italic">
                   &quot;Eventos Locais me ajudou a encontrar pessoas com interesses
                   semelhantes na minha região. Participei de 5 eventos este mês!&quot;
                 </p>
-                <span className="mt-4 font-semibold text-cyan-700">
+                <span className="mt-4 font-semibold text-primary">
                   Roberto, entusiasta de eventos
                 </span>
               </div>
@@ -462,10 +462,10 @@ export default function LandingPage() {
         </section>
 
         {/* Gráficos Antes/Depois Section */}
-        <section className="flex w-full flex-col items-center bg-white py-16 md:py-28 lg:py-36">
+        <section className="flex w-full flex-col items-center bg-card py-16 md:py-28 lg:py-36">
           <div className="container px-4 md:px-6">
             <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
-              <h2 className="text-4xl font-extrabold tracking-tight text-cyan-700">
+              <h2 className="text-4xl font-extrabold tracking-tight text-primary">
                 O Impacto de Eventos Locais
               </h2>
               <p className="text-muted-foreground max-w-[700px] md:text-xl/relaxed">
@@ -474,8 +474,8 @@ export default function LandingPage() {
               </p>
             </div>
             <div className="grid gap-10 md:grid-cols-2">
-              <div className="flex flex-col items-center rounded-2xl border border-cyan-100 bg-cyan-50 p-8 text-center shadow-lg">
-                <h3 className="mb-4 text-xl font-bold text-cyan-700">
+              <div className="flex flex-col items-center rounded-2xl border border-primary/10 bg-primary/5 p-8 text-center shadow-lg">
+                <h3 className="mb-4 text-xl font-bold text-primary">
                   Antes de Eventos Locais
                 </h3>
                 <Image
@@ -485,14 +485,14 @@ export default function LandingPage() {
                   alt="Antes de Eventos Locais"
                   className="mb-4 rounded-lg object-cover"
                 />
-                <p className="text-base text-slate-700">
+                <p className="text-base text-foreground">
                   Difícil descobrir eventos próximos, informações espalhadas
                   em várias plataformas. Falta de conexão com a comunidade local
                   e oportunidades perdidas.
                 </p>
               </div>
-              <div className="flex flex-col items-center rounded-2xl border border-cyan-100 bg-cyan-50 p-8 text-center shadow-lg">
-                <h3 className="mb-4 text-xl font-bold text-cyan-700">
+              <div className="flex flex-col items-center rounded-2xl border border-primary/10 bg-primary/5 p-8 text-center shadow-lg">
+                <h3 className="mb-4 text-xl font-bold text-primary">
                   Depois de Eventos Locais
                 </h3>
                 <Image
@@ -502,7 +502,7 @@ export default function LandingPage() {
                   alt="Depois de Eventos Locais"
                   className="mb-4 rounded-lg object-cover"
                 />
-                <p className="text-base text-slate-700">
+                <p className="text-base text-foreground">
                   Descoberta instantânea, conexão com a comunidade e participação
                   ativa em eventos. A vida social se torna mais rica, conectada
                   e vibrante.
@@ -515,12 +515,12 @@ export default function LandingPage() {
         {/* Benefits Section */}
         <section
           id="benefits"
-          className="flex w-full flex-col items-center bg-slate-50 py-16 md:py-28 lg:py-36"
+          className="flex w-full flex-col items-center bg-muted py-16 md:py-28 lg:py-36"
         >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-4xl font-extrabold tracking-tight text-cyan-700">
+                <h2 className="text-4xl font-extrabold tracking-tight text-primary">
                   Benefícios para Todos
                 </h2>
                 <p className="text-muted-foreground max-w-[900px] md:text-xl/relaxed">
@@ -532,10 +532,10 @@ export default function LandingPage() {
             </div>
             <div className="mt-16 grid gap-10 md:grid-cols-2">
               {/* Card Cidadãos */}
-              <div className="flex flex-col items-center gap-6 rounded-3xl border border-cyan-100 bg-white p-8 text-center shadow-xl transition hover:shadow-2xl">
-                <div className="mb-2 flex h-20 w-20 items-center justify-center rounded-full bg-cyan-50">
+              <div className="flex flex-col items-center gap-6 rounded-3xl border border-primary/10 bg-card p-8 text-center shadow-xl transition hover:shadow-2xl">
+                <div className="mb-2 flex h-20 w-20 items-center justify-center rounded-full bg-primary/5">
                   <svg
-                    className="h-12 w-12 text-cyan-500"
+                    className="h-12 w-12 text-primary"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -551,33 +551,33 @@ export default function LandingPage() {
                     <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-cyan-700">
+                <h3 className="text-2xl font-bold text-primary">
                   Para Participantes
                 </h3>
-                <ul className="list-none space-y-2 text-base text-slate-700">
+                <ul className="list-none space-y-2 text-base text-foreground">
                   <li>
-                    <span className="font-semibold text-cyan-600">
+                    <span className="font-semibold text-primary">
                       ✔ Descoberta instantânea:
                     </span>{" "}
                     encontre eventos próximos em tempo real, filtrados por
                     categoria e distância.
                   </li>
                   <li>
-                    <span className="font-semibold text-cyan-600">
+                    <span className="font-semibold text-primary">
                       ✔ Transparência total:
                     </span>{" "}
                     veja detalhes completos, localização exata e informações
                     dos organizadores.
                   </li>
                   <li>
-                    <span className="font-semibold text-cyan-600">
+                    <span className="font-semibold text-primary">
                       ✔ Voz ativa:
                     </span>{" "}
                     demonstre interesse, confirme participação e conecte-se
                     facilmente com outros participantes.
                   </li>
                   <li>
-                    <span className="font-semibold text-cyan-600">
+                    <span className="font-semibold text-primary">
                       ✔ Comunidade forte:
                     </span>{" "}
                     conecte-se com pessoas de interesses similares e crie
@@ -586,10 +586,10 @@ export default function LandingPage() {
                 </ul>
               </div>
               {/* Card Funcionários Públicos */}
-              <div className="flex flex-col items-center gap-6 rounded-3xl border border-cyan-100 bg-white p-8 text-center shadow-xl transition hover:shadow-2xl">
-                <div className="mb-2 flex h-20 w-20 items-center justify-center rounded-full bg-cyan-50">
+              <div className="flex flex-col items-center gap-6 rounded-3xl border border-primary/10 bg-card p-8 text-center shadow-xl transition hover:shadow-2xl">
+                <div className="mb-2 flex h-20 w-20 items-center justify-center rounded-full bg-primary/5">
                   <svg
-                    className="h-12 w-12 text-cyan-500"
+                    className="h-12 w-12 text-primary"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
@@ -606,33 +606,33 @@ export default function LandingPage() {
                     <path d="M8 21v-4a1 1 0 0 0-1-1H3" />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-bold text-cyan-700">
+                <h3 className="text-2xl font-bold text-primary">
                   Para Organizadores
                 </h3>
-                <ul className="list-none space-y-2 text-base text-slate-700">
+                <ul className="list-none space-y-2 text-base text-foreground">
                   <li>
-                    <span className="font-semibold text-cyan-600">
+                    <span className="font-semibold text-primary">
                       ✔ Criação simplificada:
                     </span>{" "}
                     publique eventos em minutos com localização automática
                     e categorização intuitiva.
                   </li>
                   <li>
-                    <span className="font-semibold text-cyan-600">
+                    <span className="font-semibold text-primary">
                       ✔ Alcance local:
                     </span>{" "}
                     divulgue para pessoas próximas automaticamente através
                     do mapa interativo.
                   </li>
                   <li>
-                    <span className="font-semibold text-cyan-600">
+                    <span className="font-semibold text-primary">
                       ✔ Métricas em tempo real:
                     </span>{" "}
                     acompanhe interesse, confirmações de participação e
                     engajamento do público.
                   </li>
                   <li>
-                    <span className="font-semibold text-cyan-600">
+                    <span className="font-semibold text-primary">
                       ✔ Gestão eficiente:
                     </span>{" "}
                     edite, cancele e gerencie seus eventos facilmente em
@@ -747,15 +747,15 @@ export default function LandingPage() {
         {/* Call to Action Section */}
         <section
           id="download"
-          className="flex w-full flex-col items-center bg-cyan-500 py-12 text-white md:py-24 lg:py-32"
+          className="flex w-full flex-col items-center bg-gradient-to-br from-primary/10 via-primary/5 to-background py-12 border-t border-border md:py-24 lg:py-32"
         >
           <div className="container px-4 md:px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
-                <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+                <h2 className="text-3xl font-bold tracking-tighter text-foreground sm:text-4xl md:text-5xl">
                   Pronto para Descobrir Eventos Incríveis?
                 </h2>
-                <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                   Comece agora e descubra eventos próximos a você.
                   Conecte-se com sua comunidade local!
                 </p>
@@ -764,7 +764,7 @@ export default function LandingPage() {
                 {user ? (
                   <Link
                     href="/events"
-                    className="focus-visible:ring-ring inline-flex h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-medium text-cyan-500 shadow transition-colors hover:bg-gray-100 focus-visible:ring-1 focus-visible:outline-none"
+                    className="focus-visible:ring-ring inline-flex h-12 items-center justify-center rounded-md bg-card px-6 text-sm font-medium text-primary shadow transition-colors hover:bg-muted focus-visible:ring-1 focus-visible:outline-none"
                   >
                     <MapPin className="mr-2 h-5 w-5" />
                     Ver Eventos
@@ -772,7 +772,7 @@ export default function LandingPage() {
                 ) : (
                   <Link
                     href="/login"
-                    className="focus-visible:ring-ring inline-flex h-12 items-center justify-center rounded-md bg-white px-6 text-sm font-medium text-cyan-500 shadow transition-colors hover:bg-gray-100 focus-visible:ring-1 focus-visible:outline-none"
+                    className="focus-visible:ring-ring inline-flex h-12 items-center justify-center rounded-md bg-card px-6 text-sm font-medium text-primary shadow transition-colors hover:bg-muted focus-visible:ring-1 focus-visible:outline-none"
                   >
                     <FiLogIn className="mr-2 h-5 w-5" />
                     Entrar agora
@@ -784,10 +784,10 @@ export default function LandingPage() {
         </section>
       </main>
       {/* CityFix em Números Section */}
-      <section className="flex w-full flex-col items-center bg-white py-16 md:py-28 lg:py-36">
+      <section className="flex w-full flex-col items-center bg-card py-16 md:py-28 lg:py-36">
         <div className="container px-4 md:px-6">
           <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
-            <h2 className="text-4xl font-extrabold tracking-tight text-cyan-700">
+            <h2 className="text-4xl font-extrabold tracking-tight text-primary">
               Eventos Locais em Números
             </h2>
             <p className="text-muted-foreground max-w-[700px] md:text-xl/relaxed">
@@ -801,7 +801,7 @@ export default function LandingPage() {
       <footer className="flex w-full flex-col items-center border-t py-6 md:py-0">
         <div className="container flex flex-col items-center justify-between gap-4 py-4 md:h-24 md:flex-row md:py-0">
           <div className="flex items-center gap-2">
-            <MapPin className="h-5 w-5 text-cyan-500" />
+            <MapPin className="h-5 w-5 text-primary" />
             <p className="text-muted-foreground text-sm">
               © 2025 Eventos Locais. Todos os direitos reservados.
             </p>
@@ -809,19 +809,19 @@ export default function LandingPage() {
           <div className="flex gap-4">
             <Link
               href="#"
-              className="text-muted-foreground text-sm hover:text-cyan-500"
+              className="text-muted-foreground text-sm hover:text-primary"
             >
               Política de Privacidade
             </Link>
             <Link
               href="#"
-              className="text-muted-foreground text-sm hover:text-cyan-500"
+              className="text-muted-foreground text-sm hover:text-primary"
             >
               Termos de Serviço
             </Link>
             <Link
               href="#"
-              className="text-muted-foreground text-sm hover:text-cyan-500"
+              className="text-muted-foreground text-sm hover:text-primary"
             >
               Fale Conosco
             </Link>
@@ -868,14 +868,14 @@ function EventsStats() {
 
   return (
     <div className="mt-8 flex flex-col items-center justify-center gap-12 md:flex-row">
-      <div className="flex min-w-[260px] flex-col items-center rounded-2xl border border-cyan-100 bg-cyan-50 p-10 shadow-lg">
-        <span className="text-5xl font-extrabold text-cyan-700">
+      <div className="flex min-w-[260px] flex-col items-center rounded-2xl border border-primary/10 bg-primary/5 p-10 shadow-lg">
+        <span className="text-5xl font-extrabold text-primary">
           {eventos.toLocaleString("pt-BR")}
         </span>
-        <span className="mt-2 text-lg font-semibold text-slate-700">
+        <span className="mt-2 text-lg font-semibold text-foreground">
           eventos criados por mês
         </span>
-        <span className="mt-2 text-cyan-500">
+        <span className="mt-2 text-primary">
           <svg
             className="inline h-8 w-8"
             fill="none"
@@ -888,14 +888,14 @@ function EventsStats() {
           </svg>
         </span>
       </div>
-      <div className="flex min-w-[260px] flex-col items-center rounded-2xl border border-cyan-100 bg-cyan-50 p-10 shadow-lg">
-        <span className="text-5xl font-extrabold text-cyan-700">
+      <div className="flex min-w-[260px] flex-col items-center rounded-2xl border border-primary/10 bg-primary/5 p-10 shadow-lg">
+        <span className="text-5xl font-extrabold text-primary">
           {participantes.toLocaleString("pt-BR")}
         </span>
-        <span className="mt-2 text-lg font-semibold text-slate-700">
+        <span className="mt-2 text-lg font-semibold text-foreground">
           participantes engajados por mês
         </span>
-        <span className="mt-2 text-cyan-500">
+        <span className="mt-2 text-primary">
           <svg
             className="inline h-8 w-8"
             fill="none"

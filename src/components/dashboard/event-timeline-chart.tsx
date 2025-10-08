@@ -128,14 +128,14 @@ export function EventTimelineChart({ events }: EventTimelineChartProps) {
         <Line
           type="monotone"
           dataKey="criados"
-          stroke="#21b6bf"
+          stroke="hsl(var(--chart-1))"
           strokeWidth={2}
           name="criados"
         />
         <Line
           type="monotone"
           dataKey="finalizados"
-          stroke="#3b82f6"
+          stroke="hsl(var(--chart-2))"
           strokeWidth={2}
           name="finalizados"
         />

@@ -19,7 +19,7 @@ const LocationControls = ({
       <Button
         variant={followMode ? "floating" : "floating"}
         size="icon-lg"
-        className={`${followMode ? "bg-blue-500 text-white hover:bg-blue-600" : ""}`}
+        className={`${followMode ? "bg-primary text-primary-foreground hover:bg-primary/90" : ""}`}
         title={
           followMode
             ? "Desativar centralização automática"

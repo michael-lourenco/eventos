@@ -53,7 +53,7 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
     const userLocationSvg = `
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
         <!-- Círculo externo pulsante -->
-        <circle cx="12" cy="12" r="6" fill="#4285F4" opacity="0.8">
+        <circle cx="12" cy="12" r="6" fill="var(--brand)" opacity="0.8">
           <animate 
             attributeName="r" 
             from="6" 
@@ -73,7 +73,7 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
         </circle>
         
         <!-- Círculo central fixo -->
-        <circle cx="12" cy="12" r="6" fill="#4285F4" stroke="white" stroke-width="1" />
+        <circle cx="12" cy="12" r="6" fill="var(--brand)" stroke="white" stroke-width="1" />
       </svg>
     `
 
@@ -230,9 +230,9 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
           const popupContent = `
             <div class="p-2">
               <h3 class="font-bold text-lg mb-2">${event.title}</h3>
-              <p class="text-sm text-gray-600 mb-2">${event.description}</p>
-              <p class="text-xs text-gray-500">Categoria: ${event.category}</p>
-              <p class="text-xs text-gray-500">Organizador: ${event.organizerEmail}</p>
+              <p class="text-sm text-muted-foreground mb-2">${event.description}</p>
+              <p class="text-xs text-muted-foreground">Categoria: ${event.category}</p>
+              <p class="text-xs text-muted-foreground">Organizador: ${event.organizerEmail}</p>
             </div>
           `
 
@@ -282,14 +282,14 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
       
       {/* Location Status */}
       {locationLoading && (
-        <div className="absolute top-4 left-4 bg-white p-2 rounded shadow z-[1000]">
+        <div className="absolute top-4 left-4 bg-card p-2 rounded shadow z-[1000]">
           <p className="text-sm">Obtendo localização...</p>
         </div>
       )}
       
       {locationError && (
-        <div className="absolute top-4 left-4 bg-red-100 border border-red-300 p-2 rounded shadow z-[1000]">
-          <p className="text-sm text-red-700">
+        <div className="absolute top-4 left-4 bg-destructive/10 border border-destructive/30 p-2 rounded shadow z-[1000]">
+          <p className="text-sm text-destructive">
             {permissionDenied 
               ? "Permissão de localização negada. Permita o acesso para ver sua localização no mapa."
               : "Erro ao obter localização. Usando localização padrão."
@@ -299,8 +299,8 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
       )}
       
       {location && (
-        <div className="absolute top-4 left-4 bg-cyan-100 border border-cyan-300 p-2 rounded shadow z-[1000]">
-          <p className="text-sm text-cyan-700">Localização obtida com sucesso!</p>
+        <div className="absolute top-4 left-4 bg-primary/10 border border-primary/30 p-2 rounded shadow z-[1000]">
+          <p className="text-sm text-primary">Localização obtida com sucesso!</p>
         </div>
       )}
     </div>

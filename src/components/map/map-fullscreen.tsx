@@ -37,8 +37,8 @@ const MapFullScreen: React.FC<MapFullScreenProps> = ({
   return (
     <>
       {!isClient || isLoading ? (
-        <div className="absolute inset-0 flex animate-pulse items-center justify-center bg-gray-200">
-          <span className="text-gray-500">Carregando mapa...</span>
+        <div className="absolute inset-0 flex animate-pulse items-center justify-center bg-muted">
+          <span className="text-muted-foreground">Carregando mapa...</span>
         </div>
       ) : null}
 

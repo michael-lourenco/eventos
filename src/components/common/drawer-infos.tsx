@@ -58,7 +58,7 @@ const CategoryIcon = ({
   <div
     className={cn(
       "relative mb-2 flex h-20 w-20 items-center justify-center rounded-full outline-offset-2",
-      "bg-gray-700 dark:bg-gray-600",
+      "bg-muted dark:bg-muted",
       "group-hover:outline-4 group-active:outline-sky-500",
       { "outline-4 outline-sky-500 dark:outline-sky-500": selected },
     )}
@@ -275,7 +275,7 @@ export function DialogProblemsInfos({
                 size="icon"
                 variant="ghost"
                 onClick={() => onOpenChange(false)}
-                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+                className="absolute top-3 right-3 text-muted-foreground hover:text-foreground"
               >
                 <X className="size-8" />
               </Button>

@@ -122,7 +122,7 @@ export function ProblemMap({ markers }: ProblemMapProps) {
   return (
     <div className="relative h-full w-full">
       {!mapLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
+        <div className="absolute inset-0 flex items-center justify-center bg-muted">
           <Loader className="text-muted-foreground h-8 w-8 animate-spin" />
         </div>
       )}

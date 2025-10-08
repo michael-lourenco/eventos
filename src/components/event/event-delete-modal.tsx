@@ -33,7 +33,7 @@ export function EventDeleteModal({ event, open, onOpenChange, onConfirm, loading
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2 text-red-600">
+          <DialogTitle className="flex items-center gap-2 text-destructive">
             <Trash2 className="h-5 w-5" />
             Excluir Evento
           </DialogTitle>
@@ -52,10 +52,10 @@ export function EventDeleteModal({ event, open, onOpenChange, onConfirm, loading
           )}
 
           {/* Event Info */}
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <h4 className="font-medium text-gray-900">{event.title}</h4>
-            <p className="text-sm text-gray-600 mt-1 line-clamp-2">{event.description}</p>
-            <div className="flex items-center gap-4 mt-2 text-xs text-gray-500">
+          <div className="bg-muted p-4 rounded-lg">
+            <h4 className="font-medium text-foreground">{event.title}</h4>
+            <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{event.description}</p>
+            <div className="flex items-center gap-4 mt-2 text-xs text-muted-foreground">
               <span>📅 {new Date(event.startDate instanceof Date ? event.startDate : event.startDate.toDate()).toLocaleDateString()}</span>
               <span>👥 {event.interestedBy?.length || 0} interessados</span>
               <span>✅ {event.attendedBy?.length || 0} participantes</span>
@@ -63,9 +63,9 @@ export function EventDeleteModal({ event, open, onOpenChange, onConfirm, loading
           </div>
 
           {/* Warning */}
-          <Alert className="border-red-200 bg-red-50">
-            <AlertCircle className="h-4 w-4 text-red-600" />
-            <AlertDescription className="text-red-800">
+          <Alert className="border-destructive/20 bg-destructive/10">
+            <AlertCircle className="h-4 w-4 text-destructive" />
+            <AlertDescription className="text-destructive">
               <strong>Atenção:</strong> Todos os dados do evento, incluindo interessados e participantes, serão perdidos permanentemente.
             </AlertDescription>
           </Alert>

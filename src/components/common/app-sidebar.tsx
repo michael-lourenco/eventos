@@ -64,7 +64,7 @@ export function AppSidebar() {
       >
         <SidebarHeader className="border-b">
           <div className="flex items-center gap-2 px-4 py-3">
-            <MapPin className="h-6 w-6 text-cyan-500" />
+            <MapPin className="h-6 w-6 text-primary" />
             <span className="text-lg font-bold">Eventos Locais</span>
           </div>
         </SidebarHeader>

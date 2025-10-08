@@ -42,13 +42,13 @@ export function AttendanceChart({ events }: AttendanceChartProps) {
         <Legend />
         <Bar
           dataKey="interessados"
-          fill="#f59e0b"
+          fill="hsl(var(--chart-4))"
           name="Interessados"
           radius={[4, 4, 0, 0]}
         />
         <Bar
           dataKey="participantes"
-          fill="#21b6bf"
+          fill="hsl(var(--chart-1))"
           name="Participantes"
           radius={[4, 4, 0, 0]}
         />

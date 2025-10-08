@@ -74,16 +74,16 @@ export default function TimerButton({
       onClick={handleClick}
       onMouseEnter={handleMouseEnter}
       disabled={isLoading}
-      className={`relative overflow-hidden rounded-md px-6 py-3 font-medium text-white transition-all ${
+      className={`relative overflow-hidden rounded-md px-6 py-3 font-medium text-primary-foreground transition-all ${
         isCompleted
-          ? "bg-green-600 hover:bg-green-700"
-          : "bg-blue-600 hover:bg-blue-700"
+          ? "bg-primary hover:bg-primary/90"
+          : "bg-primary hover:bg-primary/90"
       } ${className}`}
     >
       {/* Progress background */}
       {isLoading && (
         <div
-          className="absolute inset-0 bg-blue-500 transition-all"
+          className="absolute inset-0 bg-primary transition-all"
           style={{
             width: `${progress}%`,
             transition: "width 0.1s linear",

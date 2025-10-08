@@ -269,7 +269,7 @@ export function EventEditModal({ event, open, onOpenChange, onSave, loading = fa
             <Input
               value={`${event.lat.toFixed(6)}, ${event.lng.toFixed(6)}`}
               disabled
-              className="bg-gray-50"
+              className="bg-muted"
             />
             <p className="text-xs text-muted-foreground">
               A localização não pode ser alterada após a criação do evento

@@ -8,7 +8,7 @@ export interface MenuButtonProps {
 
 export const MenuButton: React.FC<MenuButtonProps> = ({ label, onClick }) => (
   <Button
-    className="border-lime-500 text-lime-500 hover:bg-lime-500 hover:text-slate-900"
+    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground"
     variant="outline"
     onClick={onClick}
   >

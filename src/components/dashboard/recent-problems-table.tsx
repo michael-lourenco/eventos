@@ -116,21 +116,21 @@ export function RecentProblemsTable({ markers }: RecentProblemsTableProps) {
   const getStatusColor = (status: string) => {
     switch (status) {
       case ProblemStatus.REPORTED:
-        return "bg-yellow-500"
+        return "bg-primary"
       case ProblemStatus.UNDER_ANALYSIS:
-        return "bg-blue-500"
+        return "bg-primary"
       case ProblemStatus.VERIFIED:
-        return "bg-purple-500"
+        return "bg-primary"
       case ProblemStatus.IN_PROGRESS:
-        return "bg-orange-500"
+        return "bg-primary"
       case ProblemStatus.RESOLVED:
-        return "bg-green-500"
+        return "bg-primary"
       case ProblemStatus.CLOSED:
-        return "bg-gray-500"
+        return "bg-muted0"
       case ProblemStatus.REOPENED:
-        return "bg-red-500"
+        return "bg-destructive"
       default:
-        return "bg-gray-400"
+        return "bg-muted-foreground"
     }
   }
 

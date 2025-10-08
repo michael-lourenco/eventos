@@ -137,7 +137,7 @@ export default function OrganizerDashboardPage() {
       <div className="container mx-auto py-8">
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-500 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
             <p className="text-lg font-medium">Carregando...</p>
           </div>
         </div>
@@ -150,7 +150,7 @@ export default function OrganizerDashboardPage() {
       <div className="container mx-auto py-8 text-center">
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-500 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
             <p className="text-lg font-medium">Redirecionando para login...</p>
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function OrganizerDashboardPage() {
         <CardContent>
           {eventsLoading ? (
             <div className="flex items-center justify-center py-8">
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-cyan-500 mr-2"></div>
+              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary mr-2"></div>
               <span>Carregando eventos...</span>
             </div>
           ) : events.length === 0 ? (
@@ -254,7 +254,7 @@ export default function OrganizerDashboardPage() {
                         {organizerEvents.map((event) => (
                 <div
                   key={event.id}
-                  className="flex items-center justify-between p-4 border rounded-lg hover:bg-gray-50"
+                  className="flex items-center justify-between p-4 border rounded-lg hover:bg-muted"
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-2">
@@ -299,7 +299,7 @@ export default function OrganizerDashboardPage() {
                     <Button 
                       variant="outline" 
                       size="sm" 
-                      className="text-red-600 hover:text-red-700"
+                      className="text-destructive hover:text-destructive/90"
                       onClick={() => setDeletingEvent(event)}
                       disabled={managementLoading}
                     >

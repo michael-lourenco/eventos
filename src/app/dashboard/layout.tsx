@@ -17,7 +17,7 @@ export default function DashboardLayout({
   return (
     <div className="flex min-h-screen">
       {/* Sidebar */}
-      <div className="hidden w-64 flex-col border-r bg-gray-100 md:flex">
+      <div className="hidden w-64 flex-col border-r bg-muted md:flex">
         <div className="border-b p-4">
           <h2 className="text-xl font-bold">Eventos Locais</h2>
           <p className="text-muted-foreground text-sm">Painel de Controle</p>
@@ -82,7 +82,7 @@ export default function DashboardLayout({
 
       {/* Main content */}
       <div className="flex flex-1 flex-col">
-        <header className="flex items-center justify-between border-b bg-white p-4">
+        <header className="flex items-center justify-between border-b bg-card p-4">
           <h1 className="text-xl font-bold md:hidden">Eventos Locais</h1>
 
           <div className="flex items-center space-x-2">
@@ -91,7 +91,7 @@ export default function DashboardLayout({
           </div>
         </header>
 
-        <main className="flex-1 overflow-auto bg-gray-50">{children}</main>
+        <main className="flex-1 overflow-auto bg-muted">{children}</main>
       </div>
     </div>
   )

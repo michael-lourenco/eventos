@@ -10,7 +10,7 @@ interface InternalLayoutProps {
 
 export function InternalLayout({ title, subtitle, children }: InternalLayoutProps) {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-muted">
       <AppNavigation title={title} subtitle={subtitle}>
         {children}
       </AppNavigation>

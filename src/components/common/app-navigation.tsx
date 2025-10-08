@@ -67,13 +67,13 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
   return (
     <>
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <header className="bg-card border-b border-border sticky top-0 z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <MapPin className="h-6 w-6 text-cyan-500" />
-              <span className="text-xl font-bold text-cyan-700">Eventos Locais</span>
+              <MapPin className="h-6 w-6 text-primary" />
+              <span className="text-xl font-bold text-primary">Eventos Locais</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -91,8 +91,8 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
                     className={cn(
                       "flex items-center gap-2 px-3 py-2 rounded-md text-sm font-medium transition-colors",
                       isActive 
-                        ? "bg-cyan-100 text-cyan-700" 
-                        : "text-gray-600 hover:text-cyan-600 hover:bg-gray-50"
+                        ? "bg-primary/10 text-primary" 
+                        : "text-muted-foreground hover:text-primary hover:bg-muted"
                     )}
                   >
                     <Icon className="h-4 w-4" />
@@ -106,11 +106,11 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
             <div className="hidden md:flex items-center gap-4">
               {user ? (
                 <div className="flex items-center gap-2">
-                  <Button asChild variant="outline" size="sm" className="bg-cyan-500 hover:bg-cyan-600 text-white border-cyan-500">
+                  <Button asChild variant="outline" size="sm" className="bg-primary hover:bg-primary/90 text-primary-foreground border-primary">
                     <Link href="/user">
                       <Avatar className="h-6 w-6 mr-2">
                         <AvatarImage src={user.photoURL} alt={user.displayName} />
-                        <AvatarFallback className="text-xs bg-white text-cyan-600">
+                        <AvatarFallback className="text-xs bg-card text-primary">
                           {user.displayName?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() || "U"}
                         </AvatarFallback>
                       </Avatar>
@@ -121,7 +121,7 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
                     variant="ghost"
                     size="sm"
                     onClick={handleLogoutClick}
-                    className="text-gray-600 hover:text-red-600"
+                    className="text-muted-foreground hover:text-destructive"
                   >
                     <LogOut className="h-4 w-4" />
                   </Button>
@@ -154,7 +154,7 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden border-t border-gray-200 bg-white">
+          <div className="md:hidden border-t border-border bg-white">
             <div className="container mx-auto px-4 py-4">
               <nav className="space-y-2">
                 {navigationItems.map((item) => {
@@ -171,14 +171,14 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
                       className={cn(
                         "flex items-center gap-3 px-3 py-3 rounded-md text-sm font-medium transition-colors",
                         isActive 
-                          ? "bg-cyan-100 text-cyan-700" 
-                          : "text-gray-600 hover:text-cyan-600 hover:bg-gray-50"
+                          ? "bg-primary/10 text-primary" 
+                          : "text-muted-foreground hover:text-primary hover:bg-muted"
                       )}
                     >
                       <Icon className="h-4 w-4" />
                       <div>
                         <p>{item.title}</p>
-                        <p className="text-xs text-gray-500">{item.description}</p>
+                        <p className="text-xs text-muted-foreground">{item.description}</p>
                       </div>
                     </Link>
                   )
@@ -186,14 +186,14 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
               </nav>
 
               {/* Mobile User Section */}
-              <div className="mt-6 pt-6 border-t border-gray-200">
+              <div className="mt-6 pt-6 border-t border-border">
                 {user ? (
                   <div className="flex items-center gap-2 px-3 py-3">
-                    <Button asChild variant="outline" className="flex-1 bg-cyan-500 hover:bg-cyan-600 text-white border-cyan-500">
+                    <Button asChild variant="outline" className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground border-primary">
                       <Link href="/user" onClick={() => setIsMobileMenuOpen(false)}>
                         <Avatar className="h-5 w-5 mr-2">
                           <AvatarImage src={user.photoURL} alt={user.displayName} />
-                          <AvatarFallback className="text-xs bg-white text-cyan-600">
+                          <AvatarFallback className="text-xs bg-card text-primary">
                             {user.displayName?.charAt(0)?.toUpperCase() || user.email?.charAt(0)?.toUpperCase() || "U"}
                           </AvatarFallback>
                         </Avatar>
@@ -204,7 +204,7 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
                       variant="ghost"
                       size="sm"
                       onClick={handleLogoutClick}
-                      className="text-gray-600 hover:text-red-600"
+                      className="text-muted-foreground hover:text-destructive"
                     >
                       <LogOut className="h-4 w-4" />
                     </Button>
@@ -226,13 +226,13 @@ export function AppNavigation({ title, subtitle, children }: AppNavigationProps)
       {/* Page Content */}
       <main className="flex-1">
         {(title || subtitle) && (
-          <div className="bg-gray-50 border-b border-gray-200">
+          <div className="bg-muted border-b border-border">
             <div className="container mx-auto px-4 py-8">
               {title && (
-                <h1 className="text-3xl font-bold text-gray-900 mb-2">{title}</h1>
+                <h1 className="text-3xl font-bold text-foreground mb-2">{title}</h1>
               )}
               {subtitle && (
-                <p className="text-gray-600">{subtitle}</p>
+                <p className="text-muted-foreground">{subtitle}</p>
               )}
             </div>
           </div>

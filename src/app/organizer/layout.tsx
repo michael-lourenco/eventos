@@ -11,7 +11,7 @@ export default function OrganizerLayout({
   children: React.ReactNode
 }) {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-muted">
       {children}
     </div>
   )

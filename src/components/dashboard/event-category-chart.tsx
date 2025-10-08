@@ -9,16 +9,16 @@ interface EventCategoryChartProps {
 }
 
 const COLORS = [
-  "#21b6bf", // emerald
-  "#3b82f6", // blue
-  "#f59e0b", // amber
-  "#ef4444", // red
-  "#8b5cf6", // purple
-  "#ec4899", // pink
-  "#06b6d4", // cyan
-  "#f97316", // orange
-  "#14b8a6", // teal
-  "#a855f7", // violet
+  "hsl(var(--chart-1))",
+  "hsl(var(--chart-2))",
+  "hsl(var(--chart-3))",
+  "hsl(var(--chart-4))",
+  "hsl(var(--chart-5))",
+  "#3b82f6",
+  "#f59e0b",
+  "#ef4444",
+  "#8b5cf6",
+  "#ec4899",
 ]
 
 export function EventCategoryChart({ events }: EventCategoryChartProps) {

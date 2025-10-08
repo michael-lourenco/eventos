@@ -53,7 +53,7 @@ export default function CookieConsent() {
         concorda com nossa{" "}
         <a
           href="/politica-de-cookies"
-          className="text-blue-400 underline"
+          className="text-primary underline"
         >
           Política de Cookies
         </a>

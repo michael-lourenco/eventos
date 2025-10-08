@@ -147,22 +147,22 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
         <div class="p-3 min-w-[250px]">
           <div class="flex items-start justify-between mb-2">
             <h3 class="font-semibold text-sm leading-tight">${event.title}</h3>
-            <span class="text-xs bg-cyan-100 text-cyan-800 px-2 py-1 rounded-full ml-2">
+            <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full ml-2">
               ${getEventCategoryLabel(event.category)}
             </span>
           </div>
           
-          <p class="text-xs text-gray-600 mb-3 line-clamp-2">${event.description}</p>
+          <p class="text-xs text-muted-foreground mb-3 line-clamp-2">${event.description}</p>
           
           <div class="space-y-1 mb-3">
-            <div class="flex items-center text-xs text-gray-500">
+            <div class="flex items-center text-xs text-muted-foreground">
               <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
               ${format(startDate, "dd/MM/yyyy HH:mm")}
             </div>
             
-            <div class="flex items-center text-xs text-gray-500">
+            <div class="flex items-center text-xs text-muted-foreground">
               <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -171,14 +171,14 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
             </div>
             
             ${event.price?.type === 'paid' ? `
-              <div class="flex items-center text-xs text-gray-500">
+              <div class="flex items-center text-xs text-muted-foreground">
                 <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                 </svg>
                 R$ ${event.price.amount?.toFixed(2)}
               </div>
             ` : `
-              <div class="flex items-center text-xs text-cyan-600">
+              <div class="flex items-center text-xs text-primary">
                 <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                 </svg>
@@ -187,7 +187,7 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
             `}
           </div>
           
-          <div class="flex items-center justify-between text-xs text-gray-500 mb-3">
+          <div class="flex items-center justify-between text-xs text-muted-foreground mb-3">
             <span class="flex items-center">
               <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
@@ -206,8 +206,8 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
             <button 
               class="flex-1 px-3 py-1 text-xs rounded-md transition-colors ${
                 isInterested 
-                  ? 'bg-cyan-100 text-cyan-800 hover:bg-emerald-200' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-primary/10 text-primary hover:bg-primary/20' 
+                  : 'bg-muted text-foreground hover:bg-muted/80'
               }"
               data-event-id="${event.id}"
               data-action="interest"
@@ -217,8 +217,8 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
             <button 
               class="flex-1 px-3 py-1 text-xs rounded-md transition-colors ${
                 isAttending 
-                  ? 'bg-blue-100 text-blue-800 hover:bg-blue-200' 
-                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  ? 'bg-primary/10 text-primary hover:bg-primary/20' 
+                  : 'bg-muted text-foreground hover:bg-muted/80'
               }"
               data-event-id="${event.id}"
               data-action="attendance"
@@ -287,7 +287,7 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
 
       {/* Category Filter */}
       {availableCategories.length > 0 && (
-        <div className="absolute top-4 left-4 z-[1000] bg-white rounded-lg shadow-lg p-3 max-w-xs">
+        <div className="absolute top-4 left-4 z-[1000] bg-card rounded-lg shadow-lg p-3 max-w-xs">
           <h3 className="text-sm font-medium mb-2">Filtrar por Categoria</h3>
           <div className="space-y-1">
             {availableCategories.map((category) => (
@@ -307,18 +307,18 @@ const EventsMap = ({ onNeedLogin }: EventsMapProps) => {
 
       {/* Location Status */}
       {locationLoading && (
-        <div className="absolute top-4 right-4 z-[1000] bg-white rounded-lg shadow-lg p-3">
+        <div className="absolute top-4 right-4 z-[1000] bg-card rounded-lg shadow-lg p-3">
           <div className="flex items-center gap-2 text-sm">
-            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-cyan-500"></div>
+            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
             <span>Obtendo localização...</span>
           </div>
         </div>
       )}
 
       {/* Events Count */}
-      <div className="absolute bottom-4 left-4 z-[1000] bg-white rounded-lg shadow-lg p-3">
+      <div className="absolute bottom-4 left-4 z-[1000] bg-card rounded-lg shadow-lg p-3">
         <div className="flex items-center gap-2 text-sm">
-          <MapPin className="h-4 w-4 text-cyan-500" />
+          <MapPin className="h-4 w-4 text-primary" />
           <span>{filteredEvents.length} eventos próximos</span>
         </div>
       </div>

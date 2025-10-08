@@ -59,7 +59,7 @@ export default function CreateEventPage() {
       <div className="container mx-auto py-8">
         <div className="flex items-center justify-center min-h-[400px]">
           <div className="text-center">
-            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cyan-500 mx-auto mb-4"></div>
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto mb-4"></div>
             <p className="text-lg font-medium">Carregando...</p>
           </div>
         </div>
@@ -89,9 +89,9 @@ export default function CreateEventPage() {
 
       {/* Location Error Alert */}
       {showLocationError && (
-        <Alert className="mb-6 border-red-200 bg-red-50">
-          <AlertCircle className="h-4 w-4 text-red-600" />
-          <AlertDescription className="text-red-800">
+        <Alert className="mb-6 border-destructive/20 bg-destructive/10">
+          <AlertCircle className="h-4 w-4 text-destructive" />
+          <AlertDescription className="text-destructive-foreground">
             Não foi possível obter sua localização. Por favor, permita o acesso à localização 
             no seu navegador e recarregue a página.
           </AlertDescription>
@@ -103,7 +103,7 @@ export default function CreateEventPage() {
         <Card className="mb-6">
           <CardContent className="pt-6">
             <div className="flex items-center gap-2">
-              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-cyan-500"></div>
+              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-primary"></div>
               <span className="text-sm text-muted-foreground">
                 Obtendo sua localização...
               </span>
@@ -115,7 +115,7 @@ export default function CreateEventPage() {
       {location && !locationLoading && (
         <Card className="mb-6">
           <CardContent className="pt-6">
-            <div className="flex items-center gap-2 text-sm text-cyan-600">
+            <div className="flex items-center gap-2 text-sm text-primary">
               <MapPin className="h-4 w-4" />
               <span>
                 Localização obtida: {location.lat.toFixed(6)}, {location.lng.toFixed(6)}
@@ -127,9 +127,9 @@ export default function CreateEventPage() {
 
       {/* Error Alert */}
       {error && (
-        <Alert className="mb-6 border-red-200 bg-red-50">
-          <AlertCircle className="h-4 w-4 text-red-600" />
-          <AlertDescription className="text-red-800">
+        <Alert className="mb-6 border-destructive/20 bg-destructive/10">
+          <AlertCircle className="h-4 w-4 text-destructive" />
+          <AlertDescription className="text-destructive-foreground">
             {error}
           </AlertDescription>
         </Alert>
@@ -137,13 +137,13 @@ export default function CreateEventPage() {
 
       {/* Geolocation Required Message */}
       {(!location && !locationLoading) && (
-        <Card className="mb-6 border-orange-200 bg-orange-50">
+        <Card className="mb-6 border-primary/20 bg-primary/5">
           <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-orange-800">
+            <CardTitle className="flex items-center gap-2 text-primary">
               <MapPin className="h-5 w-5" />
               Geolocalização Necessária
             </CardTitle>
-            <CardDescription className="text-orange-700">
+            <CardDescription className="text-primary">
               Para criar eventos, precisamos saber sua localização atual.
             </CardDescription>
           </CardHeader>
@@ -156,10 +156,10 @@ export default function CreateEventPage() {
             )}
             
             <div className="space-y-2">
-              <p className="text-sm text-orange-700">
+              <p className="text-sm text-primary">
                 <strong>Como permitir a geolocalização:</strong>
               </p>
-              <ul className="text-sm text-orange-600 space-y-1 ml-4">
+              <ul className="text-sm text-primary space-y-1 ml-4">
                 <li>• Clique no ícone de localização na barra de endereços</li>
                 <li>• Selecione &quot;Permitir&quot; quando solicitado</li>
                 <li>• Recarregue a página</li>
@@ -170,14 +170,14 @@ export default function CreateEventPage() {
               <Button 
                 onClick={requestLocationPermission}
                 variant="outline"
-                className="border-orange-300 text-orange-700 hover:bg-orange-100"
+                className="border-primary/30 text-primary hover:bg-primary/10"
               >
                 <MapPin className="h-4 w-4 mr-2" />
                 Tentar Novamente
               </Button>
               <Button 
                 onClick={() => window.location.reload()}
-                className="bg-orange-600 hover:bg-orange-700"
+                className="bg-primary hover:bg-primary/90"
               >
                 Recarregar Página
               </Button>
@@ -191,7 +191,7 @@ export default function CreateEventPage() {
         <Card className="mb-6">
           <CardContent className="py-8">
             <div className="flex items-center justify-center space-x-2">
-              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-cyan-500"></div>
+              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
               <p className="text-muted-foreground">Obtendo sua localização...</p>
             </div>
           </CardContent>
@@ -267,7 +267,7 @@ function EventCreationForm({ onSubmit, loading }: { onSubmit: (data: EventFormDa
         <CardDescription>
           Preencha os detalhes do seu evento para publicá-lo no mapa
           {location && (
-            <span className="block mt-2 text-sm text-cyan-600">
+            <span className="block mt-2 text-sm text-primary">
               📍 Localização atual: {location.lat.toFixed(4)}, {location.lng.toFixed(4)}
             </span>
           )}

@@ -174,9 +174,9 @@ export function EventForm({ onSubmit, loading = false, initialData }: EventFormP
               value={formData.title}
               onChange={(e) => handleInputChange("title", e.target.value)}
               placeholder="Ex: Festival de Música 2024"
-              className={errors.title ? "border-red-500" : ""}
+              className={errors.title ? "border-destructive" : ""}
             />
-            {errors.title && <p className="text-sm text-red-500">{errors.title}</p>}
+            {errors.title && <p className="text-sm text-destructive">{errors.title}</p>}
           </div>
 
           {/* Descrição */}
@@ -188,9 +188,9 @@ export function EventForm({ onSubmit, loading = false, initialData }: EventFormP
               onChange={(e) => handleInputChange("description", e.target.value)}
               placeholder="Descreva seu evento, o que os participantes podem esperar..."
               rows={4}
-              className={errors.description ? "border-red-500" : ""}
+              className={errors.description ? "border-destructive" : ""}
             />
-            {errors.description && <p className="text-sm text-red-500">{errors.description}</p>}
+            {errors.description && <p className="text-sm text-destructive">{errors.description}</p>}
           </div>
 
           {/* Categoria */}
@@ -224,7 +224,7 @@ export function EventForm({ onSubmit, loading = false, initialData }: EventFormP
                     className={cn(
                       "w-full justify-start text-left font-normal",
                       !formData.startDate && "text-muted-foreground",
-                      errors.startDate && "border-red-500"
+                      errors.startDate && "border-destructive"
                     )}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
@@ -245,7 +245,7 @@ export function EventForm({ onSubmit, loading = false, initialData }: EventFormP
                   />
                 </PopoverContent>
               </Popover>
-              {errors.startDate && <p className="text-sm text-red-500">{errors.startDate}</p>}
+              {errors.startDate && <p className="text-sm text-destructive">{errors.startDate}</p>}
             </div>
 
             <div className="space-y-2">
@@ -257,7 +257,7 @@ export function EventForm({ onSubmit, loading = false, initialData }: EventFormP
                     className={cn(
                       "w-full justify-start text-left font-normal",
                       !formData.endDate && "text-muted-foreground",
-                      errors.endDate && "border-red-500"
+                      errors.endDate && "border-destructive"
                     )}
                   >
                     <CalendarIcon className="mr-2 h-4 w-4" />
@@ -278,7 +278,7 @@ export function EventForm({ onSubmit, loading = false, initialData }: EventFormP
                   />
                 </PopoverContent>
               </Popover>
-              {errors.endDate && <p className="text-sm text-red-500">{errors.endDate}</p>}
+              {errors.endDate && <p className="text-sm text-destructive">{errors.endDate}</p>}
             </div>
           </div>
 
@@ -316,9 +316,9 @@ export function EventForm({ onSubmit, loading = false, initialData }: EventFormP
                     amount: parseFloat(e.target.value) || 0
                   })}
                   placeholder="5.00"
-                  className={errors.price ? "border-red-500" : ""}
+                  className={errors.price ? "border-destructive" : ""}
                 />
-                {errors.price && <p className="text-sm text-red-500">{errors.price}</p>}
+                {errors.price && <p className="text-sm text-destructive">{errors.price}</p>}
               </div>
             )}
           </div>
@@ -334,9 +334,9 @@ export function EventForm({ onSubmit, loading = false, initialData }: EventFormP
               value={formData.capacity || ""}
               onChange={(e) => handleInputChange("capacity", parseInt(e.target.value) || undefined)}
               placeholder="Ex: 100"
-              className={errors.capacity ? "border-red-500" : ""}
+              className={errors.capacity ? "border-destructive" : ""}
             />
-            {errors.capacity && <p className="text-sm text-red-500">{errors.capacity}</p>}
+            {errors.capacity && <p className="text-sm text-destructive">{errors.capacity}</p>}
           </div>
 
           {/* Imagem de Capa */}
@@ -352,19 +352,19 @@ export function EventForm({ onSubmit, loading = false, initialData }: EventFormP
               />
               <Label
                 htmlFor="coverImage"
-                className="flex items-center gap-2 px-4 py-2 border border-dashed rounded-md cursor-pointer hover:bg-gray-50"
+                className="flex items-center gap-2 px-4 py-2 border border-dashed rounded-md cursor-pointer hover:bg-muted"
               >
                 <Upload className="h-4 w-4" />
                 Escolher Imagem
               </Label>
               {formData.coverImage && (
-                <span className="text-sm text-gray-600">
+                <span className="text-sm text-muted-foreground">
                   {(formData.coverImage as File).name}
                 </span>
               )}
             </div>
-            {errors.coverImage && <p className="text-sm text-red-500">{errors.coverImage}</p>}
-            <p className="text-xs text-gray-500">
+            {errors.coverImage && <p className="text-sm text-destructive">{errors.coverImage}</p>}
+            <p className="text-xs text-muted-foreground">
               Máximo 5MB. Formatos aceitos: JPG, PNG
             </p>
           </div>

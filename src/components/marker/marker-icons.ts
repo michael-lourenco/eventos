@@ -21,7 +21,7 @@ export const createMapIcons = (L: any) => {
   const userLocationSvg = `
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
       <!-- Círculo externo pulsante -->
-      <circle cx="12" cy="12" r="6" fill="#4285F4" opacity="0.8">
+      <circle cx="12" cy="12" r="6" fill="var(--brand)" opacity="0.8">
         <animate 
           attributeName="r" 
           from="6" 
@@ -41,7 +41,7 @@ export const createMapIcons = (L: any) => {
       </circle>
       
       <!-- Círculo central fixo de 12x12 com stroke branco de 1px -->
-      <circle cx="12" cy="12" r="6" fill="#4285F4" stroke="white" stroke-width="1" />
+      <circle cx="12" cy="12" r="6" fill="var(--brand)" stroke="white" stroke-width="1" />
     </svg>
   `
 

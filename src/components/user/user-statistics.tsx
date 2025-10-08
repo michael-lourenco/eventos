@@ -61,19 +61,19 @@ export const UserStatistics: React.FC<UserStatisticsProps> = ({ user }) => {
                 title="Best Score"
                 value={user?.best_score?.value ?? 0}
                 icon={Trophy}
-                color="bg-amber-500/10 text-amber-500"
+                color="bg-primary/10 text-primary"
               /> */}
               {/* <StatCard
                 title="Coins"
                 value={user?.currency?.value ?? 0}
                 icon={Coins}
-                color="bg-cyan-500/10 text-cyan-500"
+                color="bg-primary/10 text-primary"
               />
               <StatCard
                 title="Total Games"
                 value={user?.total_games?.value ?? 0}
                 icon={GamepadIcon}
-                color="bg-blue-500/10 text-blue-500"
+                color="bg-primary/10 text-primary"
               /> */}
             </div>
           </div>

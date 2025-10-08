@@ -11,7 +11,7 @@ export const UserMenuButton: React.FC<UserMenuButtonProps> = ({
   onClick,
 }) => (
   <Button
-    className="justify-centerbg-slate-800 flex items-center text-white hover:bg-slate-700"
+    className="justify-center bg-card flex items-center text-primary-foreground hover:bg-muted"
     onClick={onClick}
   >
     {label}
