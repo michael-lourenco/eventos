@@ -269,10 +269,11 @@ export default function LandingPage() {
               <div className="flex justify-center lg:justify-end">
                 <div className="relative">
                   <Image
-                    src="/reporta-cidade.svg?height=684&width=334"
+                    src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=500&q=80"
                     width={500}
-                    height={1042}
-                    alt="App CityFix em uso"
+                    height={500}
+                    alt="Eventos Locais em uso"
+                    className="rounded-lg shadow-2xl"
                   />
                 </div>
               </div>
@@ -343,8 +344,8 @@ export default function LandingPage() {
                   Notificações em Tempo Real
                 </h3>
                 <p className="text-base text-slate-700">
-                  Receba atualizações sobre o andamento dos problemas reportados
-                  e fique por dentro das melhorias na sua região.
+                  Receba atualizações sobre novos eventos próximos a você
+                  e mudanças nos eventos que você está interessado.
                 </p>
               </div>
               <div className="flex flex-col items-center gap-6 rounded-3xl border border-emerald-100 bg-emerald-50 p-8 text-center shadow-lg transition hover:shadow-2xl">
@@ -361,11 +362,11 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-emerald-700">
-                  Priorização Inteligente
+                  Eventos Populares
                 </h3>
                 <p className="text-base text-slate-700">
-                  A comunidade ajuda a priorizar os problemas mais urgentes,
-                  tornando a gestão pública mais eficiente.
+                  A comunidade destaca os eventos mais interessantes,
+                  ajudando você a descobrir as melhores experiências.
                 </p>
               </div>
               <div className="flex flex-col items-center gap-6 rounded-3xl border border-emerald-100 bg-emerald-50 p-8 text-center shadow-lg transition hover:shadow-2xl">
@@ -382,11 +383,11 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-emerald-700">
-                  Acompanhamento Visual
+                  Histórico de Eventos
                 </h3>
                 <p className="text-base text-slate-700">
-                  Monitore o progresso das soluções e veja como sua cidade
-                  evolui com a participação de todos.
+                  Acompanhe os eventos que você participou e descubra
+                  novas experiências baseadas em seus interesses.
                 </p>
               </div>
             </div>
@@ -401,8 +402,8 @@ export default function LandingPage() {
                 Depoimentos de Quem Usa
               </h2>
               <p className="text-muted-foreground max-w-[700px] md:text-xl/relaxed">
-                Veja como o CityFix está transformando a vida de cidadãos e
-                gestores públicos.
+                Veja como Eventos Locais está transformando a vida de
+                participantes e organizadores.
               </p>
             </div>
             <div className="grid gap-10 md:grid-cols-3">
@@ -415,12 +416,12 @@ export default function LandingPage() {
                   className="mb-4 rounded-full"
                 />
                 <p className="text-lg text-slate-700 italic">
-                  “Com o CityFix, consegui reportar um buraco na minha rua e em
-                  poucos dias já estava resolvido. Nunca foi tão fácil ser
-                  ouvido!”
+                  &quot;Com Eventos Locais, descobri um festival de música incrível
+                  a poucos minutos de casa. Nunca foi tão fácil encontrar eventos
+                  próximos!&quot;
                 </p>
                 <span className="mt-4 font-semibold text-emerald-700">
-                  Carlos, morador de São Paulo
+                  Carlos, participante ativo
                 </span>
               </div>
               <div className="flex flex-col items-center rounded-2xl border border-emerald-100 bg-white p-8 text-center shadow-lg">
@@ -432,11 +433,12 @@ export default function LandingPage() {
                   className="mb-4 rounded-full"
                 />
                 <p className="text-lg text-slate-700 italic">
-                  “Acompanhar o status dos problemas e votar nas prioridades do
-                  bairro me faz sentir parte da solução!”
+                  &quot;Organizei meu primeiro evento pela plataforma e tive uma
+                  participação incrível! A ferramenta facilita muito a divulgação
+                  local.&quot;
                 </p>
                 <span className="mt-4 font-semibold text-emerald-700">
-                  Juliana, líder comunitária
+                  Juliana, organizadora de eventos
                 </span>
               </div>
               <div className="flex flex-col items-center rounded-2xl border border-emerald-100 bg-white p-8 text-center shadow-lg">
@@ -448,11 +450,11 @@ export default function LandingPage() {
                   className="mb-4 rounded-full"
                 />
                 <p className="text-lg text-slate-700 italic">
-                  “O CityFix facilitou muito a gestão das demandas da cidade.
-                  Agora priorizamos o que realmente importa para a população.”
+                  &quot;Eventos Locais me ajudou a encontrar pessoas com interesses
+                  semelhantes na minha região. Participei de 5 eventos este mês!&quot;
                 </p>
                 <span className="mt-4 font-semibold text-emerald-700">
-                  Roberto, gestor público
+                  Roberto, entusiasta de eventos
                 </span>
               </div>
             </div>
@@ -464,46 +466,46 @@ export default function LandingPage() {
           <div className="container px-4 md:px-6">
             <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
               <h2 className="text-4xl font-extrabold tracking-tight text-emerald-700">
-                O Impacto do CityFix
+                O Impacto de Eventos Locais
               </h2>
               <p className="text-muted-foreground max-w-[700px] md:text-xl/relaxed">
-                Veja como a cidade pode evoluir com a participação ativa dos
-                cidadãos e o uso da tecnologia.
+                Veja como a comunidade se conecta e cria experiências
+                incríveis através de eventos locais.
               </p>
             </div>
             <div className="grid gap-10 md:grid-cols-2">
               <div className="flex flex-col items-center rounded-2xl border border-emerald-100 bg-emerald-50 p-8 text-center shadow-lg">
                 <h3 className="mb-4 text-xl font-bold text-emerald-700">
-                  Antes do CityFix
+                  Antes de Eventos Locais
                 </h3>
                 <Image
                   src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=600&q=80"
                   width={400}
                   height={220}
-                  alt="Gráfico antes do CityFix"
+                  alt="Antes de Eventos Locais"
                   className="mb-4 rounded-lg object-cover"
                 />
                 <p className="text-base text-slate-700">
-                  Problemas demoravam semanas para serem reportados e
-                  resolvidos. Falta de transparência e comunicação dificultava a
-                  vida do cidadão.
+                  Difícil descobrir eventos próximos, informações espalhadas
+                  em várias plataformas. Falta de conexão com a comunidade local
+                  e oportunidades perdidas.
                 </p>
               </div>
               <div className="flex flex-col items-center rounded-2xl border border-emerald-100 bg-emerald-50 p-8 text-center shadow-lg">
                 <h3 className="mb-4 text-xl font-bold text-emerald-700">
-                  Depois do CityFix
+                  Depois de Eventos Locais
                 </h3>
                 <Image
                   src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
                   width={400}
                   height={220}
-                  alt="Gráfico depois do CityFix"
+                  alt="Depois de Eventos Locais"
                   className="mb-4 rounded-lg object-cover"
                 />
                 <p className="text-base text-slate-700">
-                  Respostas rápidas, acompanhamento em tempo real e participação
-                  ativa da população. A cidade se torna mais eficiente, limpa e
-                  segura.
+                  Descoberta instantânea, conexão com a comunidade e participação
+                  ativa em eventos. A vida social se torna mais rica, conectada
+                  e vibrante.
                 </p>
               </div>
             </div>
@@ -522,9 +524,9 @@ export default function LandingPage() {
                   Benefícios para Todos
                 </h2>
                 <p className="text-muted-foreground max-w-[900px] md:text-xl/relaxed">
-                  O CityFix transforma a relação entre cidadãos e poder público,
-                  promovendo cidades mais inteligentes, seguras e
-                  participativas.
+                  Eventos Locais transforma a forma como você descobre e participa
+                  de eventos, promovendo comunidades mais conectadas, engajadas e
+                  vibrantes.
                 </p>
               </div>
             </div>
@@ -550,36 +552,36 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-emerald-700">
-                  Para Cidadãos
+                  Para Participantes
                 </h3>
                 <ul className="list-none space-y-2 text-base text-slate-700">
                   <li>
                     <span className="font-semibold text-emerald-600">
-                      ✔ Reporte instantâneo:
+                      ✔ Descoberta instantânea:
                     </span>{" "}
-                    registre buracos, iluminação, lixo e outros problemas em
-                    segundos.
+                    encontre eventos próximos em tempo real, filtrados por
+                    categoria e distância.
                   </li>
                   <li>
                     <span className="font-semibold text-emerald-600">
                       ✔ Transparência total:
                     </span>{" "}
-                    acompanhe o status de cada solicitação e receba notificações
-                    de progresso.
+                    veja detalhes completos, localização exata e informações
+                    dos organizadores.
                   </li>
                   <li>
                     <span className="font-semibold text-emerald-600">
                       ✔ Voz ativa:
                     </span>{" "}
-                    vote, comente e colabore para priorizar o que é mais urgente
-                    no seu bairro.
+                    demonstre interesse, confirme participação e conecte-se
+                    facilmente com outros participantes.
                   </li>
                   <li>
                     <span className="font-semibold text-emerald-600">
                       ✔ Comunidade forte:
                     </span>{" "}
-                    conecte-se com vizinhos engajados e ajude a construir uma
-                    cidade melhor para todos.
+                    conecte-se com pessoas de interesses similares e crie
+                    experiências memoráveis juntos.
                   </li>
                 </ul>
               </div>
@@ -605,35 +607,36 @@ export default function LandingPage() {
                   </svg>
                 </div>
                 <h3 className="text-2xl font-bold text-emerald-700">
-                  Para Funcionários Públicos
+                  Para Organizadores
                 </h3>
                 <ul className="list-none space-y-2 text-base text-slate-700">
                   <li>
                     <span className="font-semibold text-emerald-600">
-                      ✔ Gestão centralizada:
+                      ✔ Criação simplificada:
                     </span>{" "}
-                    visualize e priorize demandas da cidade em um só lugar.
+                    publique eventos em minutos com localização automática
+                    e categorização intuitiva.
                   </li>
                   <li>
                     <span className="font-semibold text-emerald-600">
-                      ✔ Decisão baseada em dados:
+                      ✔ Alcance local:
                     </span>{" "}
-                    use relatórios e mapas para alocar recursos de forma
-                    eficiente.
+                    divulgue para pessoas próximas automaticamente através
+                    do mapa interativo.
                   </li>
                   <li>
                     <span className="font-semibold text-emerald-600">
-                      ✔ Comunicação direta:
+                      ✔ Métricas em tempo real:
                     </span>{" "}
-                    envie atualizações e interaja com os cidadãos de maneira
-                    transparente.
+                    acompanhe interesse, confirmações de participação e
+                    engajamento do público.
                   </li>
                   <li>
                     <span className="font-semibold text-emerald-600">
-                      ✔ Redução de custos:
+                      ✔ Gestão eficiente:
                     </span>{" "}
-                    resolva problemas rapidamente e evite gastos maiores no
-                    futuro.
+                    edite, cancele e gerencie seus eventos facilmente em
+                    um dashboard completo.
                   </li>
                 </ul>
               </div>
@@ -650,14 +653,14 @@ export default function LandingPage() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Veja o CityFix em Ação
+                  Veja Eventos Locais em Ação
                 </h2>
                 <p className="text-muted-foreground max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Descubra como você pode ser protagonista na transformação da
-                  sua cidade. O CityFix foi criado para dar voz ao cidadão,
-                  facilitar o reporte de problemas urbanos e fortalecer a
-                  colaboração entre moradores e poder público. Juntos, tornamos
-                  a cidade mais segura, bonita e eficiente para todos.
+                  Descubra como você pode ser protagonista na vida cultural da
+                  sua comunidade. Eventos Locais foi criado para conectar pessoas,
+                  facilitar a descoberta de eventos próximos e fortalecer os
+                  laços comunitários. Juntos, tornamos a vida social mais rica,
+                  vibrante e conectada para todos.
                 </p>
               </div>
             </div>
@@ -673,13 +676,12 @@ export default function LandingPage() {
                   />
                 </div>
                 <h3 className="text-xl font-bold">
-                  Reporte Problemas em Segundos
+                  Crie Eventos em Segundos
                 </h3>
                 <p className="text-muted-foreground">
-                  Identificou um buraco, lâmpada queimada ou lixo acumulado? Com
-                  o CityFix, você registra o problema em poucos cliques,
-                  ajudando a prefeitura a agir mais rápido e tornando sua
-                  vizinhança melhor para todos.
+                  Quer organizar um evento? Com Eventos Locais, você publica
+                  em poucos cliques, alcançando pessoas próximas e criando
+                  experiências memoráveis para sua comunidade.
                 </p>
               </div>
               <div className="flex flex-col space-y-4">
@@ -693,12 +695,12 @@ export default function LandingPage() {
                   />
                 </div>
                 <h3 className="text-xl font-bold">
-                  Mapa Interativo de Problemas
+                  Mapa Interativo de Eventos
                 </h3>
                 <p className="text-muted-foreground">
-                  Veja em tempo real os pontos críticos da cidade, acompanhe as
-                  demandas do seu bairro e colabore indicando locais que
-                  precisam de atenção. Transparência e participação para todos!
+                  Veja em tempo real todos os eventos próximos, filtre por
+                  categoria e descubra experiências únicas na sua região.
+                  Conexão e diversão para todos!
                 </p>
               </div>
               <div className="flex flex-col space-y-4">
@@ -712,12 +714,12 @@ export default function LandingPage() {
                   />
                 </div>
                 <h3 className="text-xl font-bold">
-                  Acompanhe o Progresso das Soluções
+                  Acompanhe Seus Eventos
                 </h3>
                 <p className="text-muted-foreground">
-                  Receba notificações sobre cada etapa: do recebimento do seu
-                  reporte até a solução. Sinta-se parte do processo de melhoria
-                  e veja o impacto da sua participação na cidade.
+                  Receba notificações sobre eventos que você demonstrou interesse,
+                  acompanhe mudanças e nunca perca uma experiência incrível.
+                  Fique sempre conectado com sua comunidade.
                 </p>
               </div>
               <div className="flex flex-col space-y-4">
@@ -732,10 +734,10 @@ export default function LandingPage() {
                 </div>
                 <h3 className="text-xl font-bold">Engajamento Comunitário</h3>
                 <p className="text-muted-foreground">
-                  Participe ativamente: vote nos problemas mais urgentes,
-                  comente, compartilhe ideias e motive seus vizinhos a também
-                  contribuir. Juntos, criamos uma cidade mais humana, conectada
-                  e eficiente.
+                  Participe ativamente: demonstre interesse, confirme participação,
+                  compartilhe eventos e motive seus amigos a também participar.
+                  Juntos, criamos uma comunidade mais conectada, vibrante
+                  e engajada.
                 </p>
               </div>
             </div>
@@ -751,11 +753,11 @@ export default function LandingPage() {
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                  Pronto para Fazer a Diferença?
+                  Pronto para Descobrir Eventos Incríveis?
                 </h2>
                 <p className="max-w-[900px] md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Baixe o CityFix hoje e comece a reportar problemas de
-                  infraestrutura na sua comunidade.
+                  Comece agora e descubra eventos próximos a você.
+                  Conecte-se com sua comunidade local!
                 </p>
               </div>
               <div className="flex flex-col gap-3 pt-6 sm:flex-row">
@@ -786,13 +788,13 @@ export default function LandingPage() {
         <div className="container px-4 md:px-6">
           <div className="mb-12 flex flex-col items-center justify-center space-y-4 text-center">
             <h2 className="text-4xl font-extrabold tracking-tight text-emerald-700">
-              CityFix em números
+              Eventos Locais em Números
             </h2>
             <p className="text-muted-foreground max-w-[700px] md:text-xl/relaxed">
-              Acompanhe em tempo real o impacto do CityFix na sua cidade!
+              Acompanhe em tempo real o impacto de Eventos Locais na sua comunidade!
             </p>
           </div>
-          <CityFixStats />
+          <EventsStats />
         </div>
       </section>
 
@@ -831,36 +833,36 @@ export default function LandingPage() {
 }
 
 // Componente de contadores animados
-function CityFixStats() {
-  const [erros, setErros] = React.useState(0)
-  const [resolvidos, setResolvidos] = React.useState(0)
+function EventsStats() {
+  const [eventos, setEventos] = React.useState(0)
+  const [participantes, setParticipantes] = React.useState(0)
 
   React.useEffect(() => {
-    const erroTarget = 1280 // valor ilustrativo
-    const resolvidosTarget = 970 // valor ilustrativo
-    const erroStep = Math.ceil(erroTarget / 120)
-    const resolvidosStep = Math.ceil(resolvidosTarget / 120)
-    const erroInterval = setInterval(() => {
-      setErros((prev) => {
-        if (prev + erroStep >= erroTarget) {
-          clearInterval(erroInterval)
-          return erroTarget
+    const eventosTarget = 450 // valor ilustrativo
+    const participantesTarget = 2500 // valor ilustrativo
+    const eventosStep = Math.ceil(eventosTarget / 120)
+    const participantesStep = Math.ceil(participantesTarget / 120)
+    const eventosInterval = setInterval(() => {
+      setEventos((prev) => {
+        if (prev + eventosStep >= eventosTarget) {
+          clearInterval(eventosInterval)
+          return eventosTarget
         }
-        return prev + erroStep
+        return prev + eventosStep
       })
     }, 20)
-    const resolvidosInterval = setInterval(() => {
-      setResolvidos((prev) => {
-        if (prev + resolvidosStep >= resolvidosTarget) {
-          clearInterval(resolvidosInterval)
-          return resolvidosTarget
+    const participantesInterval = setInterval(() => {
+      setParticipantes((prev) => {
+        if (prev + participantesStep >= participantesTarget) {
+          clearInterval(participantesInterval)
+          return participantesTarget
         }
-        return prev + resolvidosStep
+        return prev + participantesStep
       })
     }, 20)
     return () => {
-      clearInterval(erroInterval)
-      clearInterval(resolvidosInterval)
+      clearInterval(eventosInterval)
+      clearInterval(participantesInterval)
     }
   }, [])
 
@@ -868,10 +870,10 @@ function CityFixStats() {
     <div className="mt-8 flex flex-col items-center justify-center gap-12 md:flex-row">
       <div className="flex min-w-[260px] flex-col items-center rounded-2xl border border-emerald-100 bg-emerald-50 p-10 shadow-lg">
         <span className="text-5xl font-extrabold text-emerald-700">
-          {erros.toLocaleString("pt-BR")}
+          {eventos.toLocaleString("pt-BR")}
         </span>
         <span className="mt-2 text-lg font-semibold text-slate-700">
-          erros reportados por dia
+          eventos criados por mês
         </span>
         <span className="mt-2 text-emerald-500">
           <svg
@@ -888,10 +890,10 @@ function CityFixStats() {
       </div>
       <div className="flex min-w-[260px] flex-col items-center rounded-2xl border border-emerald-100 bg-emerald-50 p-10 shadow-lg">
         <span className="text-5xl font-extrabold text-emerald-700">
-          {resolvidos.toLocaleString("pt-BR")}
+          {participantes.toLocaleString("pt-BR")}
         </span>
         <span className="mt-2 text-lg font-semibold text-slate-700">
-          problemas resolvidos por dia
+          participantes engajados por mês
         </span>
         <span className="mt-2 text-emerald-500">
           <svg

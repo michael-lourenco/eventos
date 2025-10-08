@@ -74,7 +74,7 @@ export function LoginModal({
         <DialogHeader>
           <DialogTitle>Autenticação Necessária</DialogTitle>
           <DialogDescription>
-            Para utilizar o mapa e reportar problemas na cidade, é necessário fazer login.
+            Para criar eventos e participar da comunidade, é necessário fazer login.
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col items-center justify-center space-y-4 py-4">
@@ -84,8 +84,8 @@ export function LoginModal({
             </div>
           </div>
           <p className="text-center text-sm text-muted-foreground">
-            Ao fazer login, você poderá reportar problemas na cidade, 
-            acompanhar o status dos problemas reportados e contribuir 
+            Ao fazer login, você poderá criar eventos, demonstrar interesse,
+            confirmar participação e contribuir 
             para a melhoria da sua comunidade.
           </p>
         </div>

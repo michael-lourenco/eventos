@@ -1,21 +1,21 @@
-import DashboardContent from "@/components/dashboard/dashboard-content"
+import EventsDashboardContent from "@/components/dashboard/events-dashboard-content"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Suspense } from "react"
 
 export const metadata = {
-  title: "Dashboard | Urban Problems",
-  description: "Dashboard para análise de problemas urbanos reportados",
+  title: "Dashboard | Eventos Locais",
+  description: "Dashboard para análise e estatísticas de eventos locais",
 }
 
 export default function DashboardPage() {
   return (
     <div className="container mx-auto py-6">
       <h1 className="mb-6 text-3xl font-bold">
-        Dashboard de Problemas Urbanos
+        Dashboard de Eventos
       </h1>
 
       <Suspense fallback={<DashboardSkeleton />}>
-        <DashboardContent />
+        <EventsDashboardContent />
       </Suspense>
     </div>
   )

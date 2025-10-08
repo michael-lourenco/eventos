@@ -5,8 +5,8 @@ import Link from "next/link"
 import type React from "react"
 
 export const metadata: Metadata = {
-  title: "Dashboard | Urban Problems",
-  description: "Dashboard para análise de problemas urbanos reportados",
+  title: "Dashboard | Eventos Locais",
+  description: "Dashboard para análise e estatísticas de eventos locais",
 }
 
 export default function DashboardLayout({
@@ -19,7 +19,7 @@ export default function DashboardLayout({
       {/* Sidebar */}
       <div className="hidden w-64 flex-col border-r bg-gray-100 md:flex">
         <div className="border-b p-4">
-          <h2 className="text-xl font-bold">Urban Problems</h2>
+          <h2 className="text-xl font-bold">Eventos Locais</h2>
           <p className="text-muted-foreground text-sm">Painel de Controle</p>
         </div>
 
@@ -83,7 +83,7 @@ export default function DashboardLayout({
       {/* Main content */}
       <div className="flex flex-1 flex-col">
         <header className="flex items-center justify-between border-b bg-white p-4">
-          <h1 className="text-xl font-bold md:hidden">Urban Problems</h1>
+          <h1 className="text-xl font-bold md:hidden">Eventos Locais</h1>
 
           <div className="flex items-center space-x-2">
             {/* Mobile menu button would go here */}

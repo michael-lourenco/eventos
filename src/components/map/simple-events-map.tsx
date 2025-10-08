@@ -193,6 +193,7 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
     }
 
     initializeMap()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   // Add markers when events are loaded and user location is available
@@ -246,6 +247,7 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
     } else {
       console.log("Nenhum evento encontrado para exibir no mapa")
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [events, location, mapReady])
 
   // Update user location marker when location changes (separate effect)
@@ -271,6 +273,7 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
         console.log("SimpleEventsMap: Posição do usuário atualizada")
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location, mapReady])
 
   return (
