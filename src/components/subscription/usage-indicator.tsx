@@ -12,11 +12,16 @@ interface UsageIndicatorProps {
 }
 
 export function UsageIndicator({ title, used, limit, unit, description }: UsageIndicatorProps) {
-  const isUnlimited = limit === null
-  const progress = isUnlimited ? 0 : (used / limit) * 100
-  const remaining = isUnlimited ? null : limit - used
+  // Garantir que used é um número válido
+  const safeUsed = isNaN(used) ? 0 : used
+  // Garantir que limit é um número válido ou null
+  const safeLimit = limit === null || limit === undefined ? null : (isNaN(limit) ? 0 : limit)
+  
+  const isUnlimited = safeLimit === null
+  const progress = isUnlimited ? 0 : (safeLimit > 0 ? (safeUsed / safeLimit) * 100 : 0)
+  const remaining = isUnlimited ? null : (safeLimit !== null ? Math.max(0, safeLimit - safeUsed) : null)
   const isNearLimit = progress >= 80 && !isUnlimited
-  const isOverLimit = used >= (limit || 0) && !isUnlimited
+  const isOverLimit = safeUsed >= (safeLimit || 0) && !isUnlimited
 
   return (
     <Card>
@@ -40,7 +45,7 @@ export function UsageIndicator({ title, used, limit, unit, description }: UsageI
           <div className="flex items-center justify-between text-sm">
             <span className="text-muted-foreground">Usados</span>
             <span className="font-semibold">
-              {used} {isUnlimited ? unit : `de ${limit} ${unit}`}
+              {safeUsed} {isUnlimited ? unit : `de ${safeLimit} ${unit}`}
             </span>
           </div>
 

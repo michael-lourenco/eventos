@@ -32,7 +32,21 @@ export default function OrganizerDashboardPage() {
   const formatEventDate = (date: any) => {
     try {
       if (!date) return "Data não definida"
-      const eventDate = new Date(date)
+      
+      // Verificar se é um Timestamp do Firebase
+      let eventDate: Date
+      if (date instanceof Date) {
+        eventDate = date
+      } else if (date?.toDate && typeof date.toDate === 'function') {
+        // É um Timestamp do Firebase
+        eventDate = date.toDate()
+      } else if (typeof date === 'string' || typeof date === 'number') {
+        // Tentar converter string ou number para Date
+        eventDate = new Date(date)
+      } else {
+        return "Data inválida"
+      }
+      
       if (isNaN(eventDate.getTime())) return "Data inválida"
       return format(eventDate, "dd/MM/yyyy HH:mm")
     } catch (error) {
