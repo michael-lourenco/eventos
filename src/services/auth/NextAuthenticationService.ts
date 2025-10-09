@@ -1,4 +1,5 @@
 import { UserData } from "@/components/user/types/user";
+import { SubscriptionPlan, SubscriptionStatus } from "@/types/subscription";
 import { doc, Firestore, setDoc, updateDoc } from "firebase/firestore";
 import { Session } from "next-auth";
 import { signIn, signOut } from "next-auth/react";
@@ -51,12 +52,45 @@ async function handleAuthResponse(session: Session | null, db: Firestore): Promi
 
     if (!userData) {
       // Criar novo usuário se não existir
+      const now = new Date()
       userData = {
         displayName: session.user.name || "",
         email: email,
         photoURL: session.user.image || "",
-        credits: { value: 0, updatedAt: new Date() },
-        currency: { value: 0, updatedAt: new Date() },
+        credits: { value: 0, updatedAt: now },
+        currency: { value: 0, updatedAt: now },
+        // Inicializar com plano Visitante (gratuito)
+        subscription: {
+          plan: SubscriptionPlan.VISITOR,
+          status: SubscriptionStatus.INACTIVE,
+          stripeCustomerId: null,
+          stripeSubscriptionId: null,
+          startDate: null,
+          endDate: null,
+          renewalDate: null,
+          cancelledAt: null,
+          gracePeriodEnd: null,
+          eventsCreatedThisMonth: 0,
+          eventsLimit: 0,
+          lastEventCountReset: now,
+          highlightsUsedThisMonth: 0,
+          highlightsLimit: 0,
+          recurringSeriesCount: 0,
+          recurringSeriesLimit: 0,
+        },
+        paymentHistory: {
+          totalSpent: 0,
+          lastPaymentDate: null,
+          lastPaymentAmount: 0,
+        },
+        preferences: {
+          brandColor: null,
+          brandLogo: null,
+          notificationsEnabled: true,
+          emailMarketing: false,
+        },
+        createdAt: now,
+        updatedAt: now,
       };
 
       const userRef = doc(db, "users", email);

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 // import { EventForm } from "@/components/event/event-form"
 import { useEventCreation } from "@/hooks/use-event-creation"
 import { useAuth } from "@/hooks/use-auth"
+import { useSubscription } from "@/hooks/use-subscription"
 import { useGeolocation } from "@/hooks/use-geolocation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -17,19 +18,29 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
 import { InternalLayout } from "@/components/common/internal-layout"
+import { UpgradeModal } from "@/components/subscription/upgrade-modal"
 
 export default function CreateEventPage() {
   const router = useRouter()
   const { user, loading: authLoading } = useAuth()
+  const { canCreateEvent } = useSubscription()
   const { createEvent, loading: createLoading, error } = useEventCreation()
   const { location, loading: locationLoading, error: locationError, permissionDenied, requestLocationPermission } = useGeolocation()
   const [showLocationError, setShowLocationError] = useState(false)
+  const [showUpgradeModal, setShowUpgradeModal] = useState(false)
 
   useEffect(() => {
     if (!authLoading && !user) {
       router.push("/login")
     }
   }, [user, authLoading, router])
+
+  // Verificar permissão para criar evento
+  useEffect(() => {
+    if (user && !canCreateEvent.allowed) {
+      setShowUpgradeModal(true)
+    }
+  }, [user, canCreateEvent])
 
   useEffect(() => {
     if (locationError) {
@@ -200,7 +211,7 @@ export default function CreateEventPage() {
       )}
 
       {/* Event Form - Only show when location is available */}
-      {location && (
+      {location && canCreateEvent.allowed && (
         <EventCreationForm onSubmit={handleSubmit} loading={createLoading} />
       )}
 
@@ -217,6 +228,14 @@ export default function CreateEventPage() {
           <p>• O evento ficará visível até a data de término</p>
         </CardContent>
       </Card>
+
+      {/* Upgrade Modal */}
+      <UpgradeModal
+        open={showUpgradeModal}
+        onOpenChange={setShowUpgradeModal}
+        reason={canCreateEvent.reason || 'Você precisa de um plano para criar eventos'}
+        action={canCreateEvent.action}
+      />
       </div>
     </InternalLayout>
   )
