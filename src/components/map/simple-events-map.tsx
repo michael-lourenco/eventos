@@ -17,6 +17,7 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
   const iconsRef = useRef<Record<string, any>>({})
   const userLocationMarkerRef = useRef<any>(null)
   const [mapReady, setMapReady] = useState(false)
+  const [showLocationSuccess, setShowLocationSuccess] = useState(false)
 
   const { location, loading: locationLoading, error: locationError, permissionDenied } = useGeolocation()
   const { events, loadEventsFromFirebase } = useEvents()
@@ -106,6 +107,18 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
   useEffect(() => {
     loadEventsFromFirebase()
   }, [loadEventsFromFirebase])
+
+  // Show location success message temporarily
+  useEffect(() => {
+    if (location && !locationLoading) {
+      setShowLocationSuccess(true)
+      const timer = setTimeout(() => {
+        setShowLocationSuccess(false)
+      }, 3000) // Hide after 3 seconds
+
+      return () => clearTimeout(timer)
+    }
+  }, [location, locationLoading])
 
   // Add user location marker
   const addUserLocationMarker = (L: any, map: any) => {
@@ -298,8 +311,8 @@ const SimpleEventsMap = ({ onNeedLogin }: SimpleEventsMapProps) => {
         </div>
       )}
       
-      {location && (
-        <div className="absolute top-4 left-4 bg-primary/10 border border-primary/30 p-2 rounded shadow z-[1000]">
+      {showLocationSuccess && (
+        <div className="absolute top-4 left-4 bg-primary/10 border border-primary/30 p-2 rounded shadow z-[1000] animate-in fade-in slide-in-from-top-2 duration-300">
           <p className="text-sm text-primary">Localização obtida com sucesso!</p>
         </div>
       )}
