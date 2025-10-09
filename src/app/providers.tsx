@@ -14,7 +14,7 @@ export function Providers({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   
   // Rotas que não devem ter sidebar
-  const noSidebarRoutes = ['/login', '/user', '/organizer/create', '/organizer/dashboard', '/', '/about']
+  const noSidebarRoutes = ['/login', '/user', '/organizer/create', '/organizer/dashboard', '/', '/about', '/pricing', '/subscription/success']
   const shouldHideSidebar = noSidebarRoutes.some(route => pathname === route)
 
   return (
