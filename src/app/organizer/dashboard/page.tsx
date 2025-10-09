@@ -163,8 +163,9 @@ export default function OrganizerDashboardPage() {
       title="Dashboard do Organizador"
       subtitle="Gerencie seus eventos e acompanhe o engajamento"
     >
-      {/* Action Buttons */}
-      <div className="flex justify-end gap-2 mb-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Action Buttons */}
+        <div className="flex justify-end gap-2 mb-8">
         <Button 
           onClick={() => loadAllEventsFromFirebase()}
           variant="outline"
@@ -334,6 +335,7 @@ export default function OrganizerDashboardPage() {
           loading={managementLoading}
         />
       )}
+      </div>
     </InternalLayout>
   )
 }

@@ -76,16 +76,17 @@ export default function CreateEventPage() {
       title="Criar Evento"
       subtitle="Publique seu evento no mapa para que pessoas próximas possam encontrá-lo"
     >
-      {/* Back Button */}
-      <div className="mb-6">
-        <Button
-          variant="ghost"
-          onClick={() => router.back()}
-        >
-          <ArrowLeft className="h-4 w-4 mr-2" />
-          Voltar
-        </Button>
-      </div>
+      <div className="max-w-4xl mx-auto">
+        {/* Back Button */}
+        <div className="mb-6">
+          <Button
+            variant="ghost"
+            onClick={() => router.back()}
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Voltar
+          </Button>
+        </div>
 
       {/* Location Error Alert */}
       {showLocationError && (
@@ -216,6 +217,7 @@ export default function CreateEventPage() {
           <p>• O evento ficará visível até a data de término</p>
         </CardContent>
       </Card>
+      </div>
     </InternalLayout>
   )
 }
